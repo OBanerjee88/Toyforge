@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-const API = process.env.NEXT_PUBLIC_API_URL || 'https://vastuforge.onrender.com';
+const API = process.env.NEXT_PUBLIC_API_URL || 'https://toyforge.onrender.com';
 const EXAMPLES = [
   "My 2BHK flat has a North-East entrance. Living room is in East, kitchen in South-East, master bedroom in South-West, second bedroom in West, bathroom in North-West.",
   "My house faces East. Kitchen is in North-West, bedroom in South-West, living room in North-East."

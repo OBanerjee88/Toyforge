@@ -3,7 +3,7 @@ import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
-const API = process.env.NEXT_PUBLIC_API_URL || 'https://vastuforge.onrender.com';
+const API = process.env.NEXT_PUBLIC_API_URL || 'https://toyforge.onrender.com';
 const CATS = ['All','Living Room','Bedroom','Kitchen','Pooja Room','Study Room','Dining Room','Balcony / Entrance'];
 
 function ScoreBadge({score}){

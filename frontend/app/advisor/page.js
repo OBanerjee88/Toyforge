@@ -1,6 +1,6 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
-const API = process.env.NEXT_PUBLIC_API_URL || 'https://vastuforge.onrender.com';
+const API = process.env.NEXT_PUBLIC_API_URL || 'https://toyforge.onrender.com';
 const SUGGESTIONS = ["Is my North-West kitchen okay?","Best colour for my bedroom?","My toilet is in North-East, any remedy?","Which direction should I sleep?","How to improve Vastu for study room?","Good plants for my living room?"];
 
 export default function Advisor(){

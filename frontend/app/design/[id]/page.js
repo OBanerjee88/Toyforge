@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 
-const API = process.env.NEXT_PUBLIC_API_URL || 'https://vastuforge.onrender.com';
+const API = process.env.NEXT_PUBLIC_API_URL || 'https://toyforge.onrender.com';
 
 export default function DesignDetail(){
   const {id} = useParams();
