@@ -114,34 +114,21 @@ class PlanRequest(BaseModel):
 
 @app.post("/generate-plan")
 async def generate_plan(req: PlanRequest):
-    prompt = f"""You are a Vastu Shastra home planning expert. Generate a complete Vastu-compliant room placement plan and return ONLY valid JSON, no markdown.
+    prompt = f"""You are a Vastu Shastra home planning expert. Return ONLY a raw JSON object, no markdown, no explanation, no code fences.
 
-Home details:
-- Entrance direction: {req.entrance_direction}
-- Home type: {req.home_type}
-- Number of rooms: {req.num_rooms}
-- Special requirements: {req.special_requirements or 'None'}
+Home: {req.home_type}, Entrance: {req.entrance_direction}, Rooms: {req.num_rooms}, Notes: {req.special_requirements or 'None'}
 
-Return exactly this JSON structure:
-{{
-  "home_type": "{req.home_type}",
-  "entrance_direction": "{req.entrance_direction}",
-  "vastu_score": 88,
-  "rooms": {{
-    "living_room": "North-East",
-    "kitchen": "South-East",
-    "master_bedroom": "South-West",
-    "bedroom_2": "West",
-    "toilet": "North-West",
-    "pooja_room": "North-East corner",
-    "study": "North"
-  }},
-  "key_principles": ["Principle 1", "Principle 2", "Principle 3"],
-  "warnings": ["Warning if any"],
-  "remedies": ["Remedy if needed"],
-  "summary": "2-sentence summary of this layout"
-}}"""
+JSON structure to return:
+{{"home_type":"{req.home_type}","entrance_direction":"{req.entrance_direction}","vastu_score":88,"rooms":{{"living_room":"North-East","kitchen":"South-East","master_bedroom":"South-West","bedroom_2":"West","toilet":"North-West"}},"key_principles":["Principle 1","Principle 2","Principle 3"],"warnings":["Warning if any"],"remedies":["Remedy if needed"],"summary":"2-sentence summary"}}"""
     text = await call_gemini(prompt)
-    text = __import__('re').sub(r"```json|```","",text).strip()
-    try: return json.loads(text)
-    except: return {"error":"Could not generate plan","raw":text}
+    # Strip markdown fences aggressively
+    text = re.sub(r"```(?:json)?","",text).strip()
+    # Find JSON object in response
+    start = text.find('{')
+    end = text.rfind('}') + 1
+    if start >= 0 and end > start:
+        text = text[start:end]
+    try:
+        return json.loads(text)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"JSON parse error: {str(e)} | Raw: {text[:200]}")
