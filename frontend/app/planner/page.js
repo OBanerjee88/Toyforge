@@ -10,13 +10,16 @@ export default function Planner(){
   const [form,setForm]=useState({entrance_direction:'North',home_type:'2BHK Apartment',num_rooms:3,special_requirements:''});
   const [result,setResult]=useState(null);
   const [loading,setLoading]=useState(false);
+  const [error,setError]=useState(null);
 
   const generate=async()=>{
-    setLoading(true); setResult(null);
+    setLoading(true); setResult(null); setError(null);
     try{
       const r=await fetch(`${API}/generate-plan`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(form)});
-      setResult(await r.json());
-    }catch{setResult(null);}
+      if(!r.ok){setError(`Server error: ${r.status}`);setLoading(false);return;}
+      const data=await r.json();
+      if(data.error){setError(data.error);}else{setResult(data);}
+    }catch(e){setError('Could not connect to server. Please wake up the backend at toyforge.onrender.com/health first.');}
     setLoading(false);
   };
 
@@ -52,9 +55,10 @@ export default function Planner(){
           <label style={{color:'#4A2C1A',fontWeight:600,fontSize:14,display:'block',marginBottom:8}}>📝 Special Requirements (optional)</label>
           <textarea value={form.special_requirements} onChange={e=>setForm({...form,special_requirements:e.target.value})} placeholder="e.g. Need a Pooja room, home office, gym, ground floor bedroom for elderly..." rows={3} style={{width:'100%',padding:'10px 12px',borderRadius:10,border:'1px solid rgba(201,168,76,0.3)',background:'#FDF6EC',color:'#4A2C1A',fontSize:14,resize:'vertical',outline:'none',boxSizing:'border-box'}}/>
         </div>
-        <button onClick={generate} disabled={loading} style={{width:'100%',background:'linear-gradient(135deg,#C9A84C,#8B6914)',color:'#1a0a00',border:'none',borderRadius:25,padding:'14px',fontWeight:700,fontSize:16,cursor:'pointer',opacity:loading?0.7:1}}>
-          {loading?'🔍 Generating Vastu Plan...':'Generate My Vastu Plan 🏠'}
+        <button onClick={generate} disabled={loading} style={{width:'100%',background:'linear-gradient(135deg,#C9A84C,#8B6914)',color:'#1a0a00',border:'none',borderRadius:25,padding:'14px',fontWeight:700,fontSize:16,cursor:loading?'not-allowed':'pointer',opacity:loading?0.7:1}}>
+          {loading?'🔍 Generating... (up to 30 sec)':'Generate My Vastu Plan 🏠'}
         </button>
+        {error&&<div style={{marginTop:12,background:'#FFF0F0',border:'1px solid #ffcccc',borderRadius:10,padding:'12px',color:'#cc0000',fontSize:13}}>❌ {error}</div>}
       </div>
 
       {result&&!result.error&&(
