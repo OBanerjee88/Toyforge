@@ -1,0 +1,344 @@
+[
+  {
+    "home_type": "2BHK Apartment",
+    "entrance_direction": "North",
+    "rooms": {
+      "living_room": "North-East",
+      "kitchen": "South-East",
+      "master_bedroom": "South-West",
+      "bedroom_2": "West",
+      "toilet": "North-West",
+      "balcony": "East"
+    },
+    "vastu_score": 96,
+    "highlights": [
+      "North entrance attracts Kubera (wealth)",
+      "Kitchen in ideal Agni corner",
+      "Master bedroom in grounding South-West"
+    ],
+    "warnings": [],
+    "notes": "Near-perfect Vastu layout for 2BHK with North entrance."
+  },
+  {
+    "home_type": "2BHK Apartment",
+    "entrance_direction": "East",
+    "rooms": {
+      "living_room": "North-East",
+      "kitchen": "South-East",
+      "master_bedroom": "South-West",
+      "bedroom_2": "North-West",
+      "toilet": "West",
+      "balcony": "East"
+    },
+    "vastu_score": 94,
+    "highlights": [
+      "East entrance brings solar prosperity",
+      "Living room captures morning light",
+      "Kitchen in ideal South-East"
+    ],
+    "warnings": [],
+    "notes": "Excellent East-facing 2BHK layout with strong elemental balance."
+  },
+  {
+    "home_type": "3BHK Apartment",
+    "entrance_direction": "North",
+    "rooms": {
+      "living_room": "North-East",
+      "kitchen": "South-East",
+      "master_bedroom": "South-West",
+      "bedroom_2": "West",
+      "bedroom_3": "North-West",
+      "toilet": "West",
+      "pooja_room": "North-East corner"
+    },
+    "vastu_score": 95,
+    "highlights": [
+      "North entrance for wealth",
+      "All bedrooms in correct zones",
+      "Pooja in sacred North-East",
+      "Kitchen in Agni corner"
+    ],
+    "warnings": [],
+    "notes": "Ideal 3BHK layout with North entrance and perfect room placement."
+  },
+  {
+    "home_type": "3BHK Apartment",
+    "entrance_direction": "East",
+    "rooms": {
+      "living_room": "East",
+      "kitchen": "South-East",
+      "master_bedroom": "South-West",
+      "bedroom_2": "West",
+      "bedroom_3": "South",
+      "toilet": "North-West",
+      "study": "North"
+    },
+    "vastu_score": 92,
+    "highlights": [
+      "East living room fills with morning Prana",
+      "Study in North for knowledge",
+      "Kitchen in ideal South-East"
+    ],
+    "warnings": [
+      "Bedroom 3 in South \u2014 use warm tones"
+    ],
+    "notes": "Strong East-facing 3BHK with study in Kubera zone."
+  },
+  {
+    "home_type": "3BHK Villa",
+    "entrance_direction": "North-East",
+    "rooms": {
+      "living_room": "North-East",
+      "kitchen": "South-East",
+      "master_bedroom": "South-West",
+      "bedroom_2": "West",
+      "bedroom_3": "North-West",
+      "pooja_room": "North-East",
+      "study": "North",
+      "garage": "North-West"
+    },
+    "vastu_score": 98,
+    "highlights": [
+      "North-East entrance \u2014 most auspicious",
+      "Pooja room in sacred zone",
+      "Garage in ideal North-West (air zone)",
+      "Study in Kubera zone"
+    ],
+    "warnings": [],
+    "notes": "Premium Villa layout \u2014 highest Vastu score with all rooms in ideal positions."
+  },
+  {
+    "home_type": "2BHK Apartment",
+    "entrance_direction": "West",
+    "rooms": {
+      "living_room": "West",
+      "kitchen": "South-East",
+      "master_bedroom": "South-West",
+      "bedroom_2": "North-West",
+      "toilet": "North-West",
+      "balcony": "West"
+    },
+    "vastu_score": 82,
+    "highlights": [
+      "Kitchen in ideal South-East",
+      "Master bedroom in South-West"
+    ],
+    "warnings": [
+      "West entrance \u2014 use bright warm lighting",
+      "Add Ganesha above door"
+    ],
+    "notes": "West-facing 2BHK \u2014 needs entrance remedies but good internal layout."
+  },
+  {
+    "home_type": "3BHK Bungalow",
+    "entrance_direction": "East",
+    "rooms": {
+      "living_room": "North-East",
+      "kitchen": "South-East",
+      "master_bedroom": "South-West",
+      "bedroom_2": "West",
+      "bedroom_3": "North-West",
+      "pooja_room": "North-East",
+      "study": "North",
+      "garden": "East",
+      "garage": "South-East"
+    },
+    "vastu_score": 94,
+    "highlights": [
+      "East entrance for prosperity",
+      "Garden in East for morning energy",
+      "Pooja and study in North zone"
+    ],
+    "warnings": [
+      "Garage in South-East \u2014 keep very clean"
+    ],
+    "notes": "Classic East-facing bungalow layout with garden and full room complement."
+  },
+  {
+    "home_type": "1BHK Apartment",
+    "entrance_direction": "North",
+    "rooms": {
+      "living_room": "North",
+      "kitchen": "South-East",
+      "bedroom": "South-West",
+      "toilet": "West",
+      "balcony": "East"
+    },
+    "vastu_score": 93,
+    "highlights": [
+      "All rooms in correct Vastu zones",
+      "Compact but highly compliant",
+      "Balcony in East for morning light"
+    ],
+    "warnings": [],
+    "notes": "Compact 1BHK with excellent Vastu compliance \u2014 ideal for young professionals."
+  },
+  {
+    "home_type": "4BHK Villa",
+    "entrance_direction": "East",
+    "rooms": {
+      "living_room": "North-East",
+      "dining_room": "West",
+      "kitchen": "South-East",
+      "master_bedroom": "South-West",
+      "bedroom_2": "South",
+      "bedroom_3": "West",
+      "bedroom_4": "North-West",
+      "pooja_room": "North-East",
+      "study": "North",
+      "garage": "North-West",
+      "garden": "East"
+    },
+    "vastu_score": 96,
+    "highlights": [
+      "East entrance for solar wealth",
+      "Dining in West for satisfaction",
+      "All major rooms in ideal zones",
+      "Dedicated study and pooja rooms"
+    ],
+    "warnings": [
+      "Bedroom 2 in South \u2014 use earth tones"
+    ],
+    "notes": "Spacious 4BHK Villa with near-perfect Vastu alignment."
+  },
+  {
+    "home_type": "Studio Apartment",
+    "entrance_direction": "North-East",
+    "rooms": {
+      "living_sleeping_area": "West",
+      "kitchen": "South-East",
+      "toilet": "North-West",
+      "study_nook": "North"
+    },
+    "vastu_score": 88,
+    "highlights": [
+      "North-East entrance most auspicious",
+      "Kitchen in Agni zone",
+      "Study nook in Kubera zone"
+    ],
+    "warnings": [
+      "Combined living/sleeping \u2014 use curtain to separate zones"
+    ],
+    "notes": "Compact studio with strong Vastu principles for small spaces."
+  },
+  {
+    "home_type": "2BHK Apartment",
+    "entrance_direction": "South",
+    "rooms": {
+      "living_room": "South",
+      "kitchen": "South-East",
+      "master_bedroom": "South-West",
+      "bedroom_2": "West",
+      "toilet": "North-West",
+      "balcony": "North-East"
+    },
+    "vastu_score": 75,
+    "highlights": [
+      "Kitchen in ideal South-East",
+      "Master bedroom in South-West",
+      "Balcony in auspicious North-East"
+    ],
+    "warnings": [
+      "South entrance \u2014 mandatory Ganesha above door",
+      "Bright warm lighting at entrance",
+      "Red door recommended"
+    ],
+    "notes": "South-facing 2BHK \u2014 acceptable with entrance remedies applied."
+  },
+  {
+    "home_type": "Duplex",
+    "entrance_direction": "North",
+    "rooms": {
+      "ground_floor_living": "North-East",
+      "ground_floor_kitchen": "South-East",
+      "ground_floor_pooja": "North-East corner",
+      "first_floor_master": "South-West",
+      "first_floor_bedroom_2": "West",
+      "first_floor_bedroom_3": "South",
+      "first_floor_study": "North",
+      "terrace": "North-East"
+    },
+    "vastu_score": 93,
+    "highlights": [
+      "Duplex with perfect zone separation",
+      "Ground floor social areas in North-East",
+      "Private bedrooms in South-West on upper floor",
+      "Terrace in auspicious North-East"
+    ],
+    "warnings": [
+      "Bedroom 3 in South \u2014 warm earth tones"
+    ],
+    "notes": "Well-planned duplex with Vastu-perfect floor separation."
+  },
+  {
+    "home_type": "3BHK Apartment",
+    "entrance_direction": "South-East",
+    "rooms": {
+      "living_room": "East",
+      "kitchen": "South-East",
+      "master_bedroom": "South-West",
+      "bedroom_2": "West",
+      "bedroom_3": "South",
+      "toilet": "West",
+      "balcony": "East"
+    },
+    "vastu_score": 84,
+    "highlights": [
+      "Kitchen in Agni zone \u2014 excellent",
+      "East living room for morning Prana",
+      "Master bedroom grounded in South-West"
+    ],
+    "warnings": [
+      "South-East entrance \u2014 keep very bright",
+      "Copper strip on threshold"
+    ],
+    "notes": "South-East facing 3BHK with strong kitchen and bedroom placement."
+  },
+  {
+    "home_type": "Penthouse",
+    "entrance_direction": "North",
+    "rooms": {
+      "main_living": "North-East",
+      "dining": "West",
+      "kitchen": "South-East",
+      "master_bedroom": "South-West",
+      "bedroom_2": "West",
+      "terrace": "North-East",
+      "home_office": "North",
+      "pooja_room": "North-East",
+      "home_gym": "East"
+    },
+    "vastu_score": 97,
+    "highlights": [
+      "North entrance for maximum wealth",
+      "Home office in Kubera zone",
+      "Gym in East for solar vitality",
+      "Terrace in North-East for cosmic energy"
+    ],
+    "warnings": [],
+    "notes": "Luxury penthouse with exceptional Vastu alignment \u2014 near-perfect energy layout."
+  },
+  {
+    "home_type": "2BHK Row House",
+    "entrance_direction": "East",
+    "rooms": {
+      "living_room": "East",
+      "kitchen": "South-East",
+      "master_bedroom": "South-West",
+      "bedroom_2": "North-West",
+      "toilet": "North-West",
+      "garden": "East",
+      "parking": "South-East"
+    },
+    "vastu_score": 91,
+    "highlights": [
+      "East entrance for solar prosperity",
+      "Private garden in East",
+      "Kitchen in Agni zone"
+    ],
+    "warnings": [
+      "Parking in South-East \u2014 Vastu remedy: copper strip"
+    ],
+    "notes": "Row house with east-facing entrance and pleasant garden layout."
+  }
+]

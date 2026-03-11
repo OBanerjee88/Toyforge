@@ -1,0 +1,787 @@
+[
+  {
+    "id": "REM-001",
+    "problem": "Kitchen in North-East",
+    "room_type": "Kitchen",
+    "direction": "North-East",
+    "severity": "High",
+    "remedies": [
+      "Place a Vastu copper pyramid in the South-East corner of the kitchen",
+      "Use warm orange and red tones in the kitchen",
+      "Cook always facing East",
+      "Keep a copper vessel near the stove",
+      "Light a diya in the kitchen every evening"
+    ],
+    "decor_adjustments": [
+      "Avoid heavy storage in North-East corner",
+      "Use terracotta or copper backsplash",
+      "Remove any water features from this kitchen"
+    ],
+    "lighting_suggestions": [
+      "Warm amber LED under-cabinet lighting",
+      "Bright warm overhead light"
+    ],
+    "notes": "Kitchen in North-East creates fire-water elemental conflict. Copper pyramid neutralises this.",
+    "source_reference": "General Vastu remedy principles"
+  },
+  {
+    "id": "REM-002",
+    "problem": "Kitchen in South-West",
+    "room_type": "Kitchen",
+    "direction": "South-West",
+    "severity": "High",
+    "remedies": [
+      "Place a Vastu pyramid in South-East corner",
+      "Cook facing East strictly",
+      "Use red and orange colour accents",
+      "Hang a copper wind chime near stove",
+      "Place green plants in the South-West corner"
+    ],
+    "decor_adjustments": [
+      "Paint one wall in warm orange",
+      "Use copper handles and fixtures",
+      "Place red curtains on windows"
+    ],
+    "lighting_suggestions": [
+      "Bright warm lighting",
+      "South-East corner lamp always on while cooking"
+    ],
+    "notes": "South-West kitchen destabilises family health. Strict elemental remedies required.",
+    "source_reference": "Vastu kitchen remedy principles"
+  },
+  {
+    "id": "REM-003",
+    "problem": "Kitchen in North",
+    "room_type": "Kitchen",
+    "direction": "North",
+    "severity": "Medium",
+    "remedies": [
+      "Use very warm tones \u2014 orange, red, yellow",
+      "Strictly face East while cooking",
+      "Place copper pyramid in South-East corner of kitchen",
+      "Keep a brass diya in kitchen"
+    ],
+    "decor_adjustments": [
+      "Warm tile backsplash",
+      "Copper or brass cookware display",
+      "No blue or black in this kitchen"
+    ],
+    "lighting_suggestions": [
+      "Extremely warm lighting",
+      "No cool white lights"
+    ],
+    "notes": "North kitchen weakens Kubera (wealth) zone with fire energy. Remedy with strict directional cooking.",
+    "source_reference": "Vastu kitchen direction remedies"
+  },
+  {
+    "id": "REM-010",
+    "problem": "Toilet in North-East",
+    "room_type": "Toilet",
+    "direction": "North-East",
+    "severity": "High",
+    "remedies": [
+      "Keep door closed at all times",
+      "Place a bowl of sea salt in corner \u2014 replace monthly",
+      "Hang a Vastu pyramid above toilet",
+      "Plant an aloe vera or peace lily outside door",
+      "Keep extremely clean \u2014 clean daily"
+    ],
+    "decor_adjustments": [
+      "Use bright white lighting",
+      "Light colour walls (white or pale blue)",
+      "Place a small Vastu crystal in corner"
+    ],
+    "lighting_suggestions": [
+      "Bright white lighting",
+      "Exhaust fan running frequently"
+    ],
+    "notes": "Toilet in North-East is considered most inauspicious in Vastu. Maximum cleanliness and remedies required.",
+    "source_reference": "General Vastu remedy principles"
+  },
+  {
+    "id": "REM-011",
+    "problem": "Toilet in North",
+    "room_type": "Toilet",
+    "direction": "North",
+    "severity": "High",
+    "remedies": [
+      "Sea salt bowl in North corner",
+      "Keep door closed",
+      "Copper strip on door threshold",
+      "Money plant outside the toilet door",
+      "Green plants to counteract negative energy"
+    ],
+    "decor_adjustments": [
+      "Blue or green accents to balance water energy",
+      "Keep extremely clean",
+      "No clutter"
+    ],
+    "lighting_suggestions": [
+      "Bright lighting",
+      "Good exhaust ventilation"
+    ],
+    "notes": "Toilet in North weakens Kubera zone causing financial difficulties.",
+    "source_reference": "Vastu North zone remedy"
+  },
+  {
+    "id": "REM-012",
+    "problem": "Toilet in East",
+    "room_type": "Toilet",
+    "direction": "East",
+    "severity": "Medium",
+    "remedies": [
+      "Sea salt in east corner",
+      "Keep door closed",
+      "Green plants outside toilet door",
+      "Regular cleansing with camphor smoke",
+      "Bright lighting inside"
+    ],
+    "decor_adjustments": [
+      "White walls mandatory",
+      "No dark colours",
+      "Small Vastu pyramid above door"
+    ],
+    "lighting_suggestions": [
+      "Bright daylight bulbs",
+      "Good ventilation"
+    ],
+    "notes": "East toilet blocks solar energy. Regular cleansing and sea salt remedy helps.",
+    "source_reference": "Vastu East zone remedies"
+  },
+  {
+    "id": "REM-020",
+    "problem": "Bedroom in North-East",
+    "room_type": "Bedroom",
+    "direction": "North-East",
+    "severity": "High",
+    "remedies": [
+      "Sleep with head pointing South",
+      "Hang heavy curtains on East and North walls",
+      "Place heavy wooden furniture in South-West corner of room",
+      "Remove any water features from room",
+      "Use earth tones \u2014 beige, brown"
+    ],
+    "decor_adjustments": [
+      "Heavy wooden bed frame",
+      "Dark curtains on North and East walls",
+      "No mirrors in this room"
+    ],
+    "lighting_suggestions": [
+      "Warm dim lighting",
+      "No bright lights \u2014 use bedside lamps only"
+    ],
+    "notes": "Bedroom in North-East disrupts sacred cosmic energy zone. Heavy grounding elements required.",
+    "source_reference": "Vastu bedroom direction remedies"
+  },
+  {
+    "id": "REM-021",
+    "problem": "Mirror facing bed",
+    "room_type": "Bedroom",
+    "direction": "Any",
+    "severity": "Medium",
+    "remedies": [
+      "Remove mirror from facing bed position",
+      "Cover mirror at night with cloth",
+      "Relocate mirror to North or East wall",
+      "If built-in \u2014 use thick curtain to cover at night"
+    ],
+    "decor_adjustments": [
+      "Mirror on North wall is acceptable",
+      "Mirror on East wall is acceptable",
+      "Never South-facing mirror"
+    ],
+    "lighting_suggestions": [
+      "No light source near mirror at night"
+    ],
+    "notes": "Mirror facing bed creates negative energy by doubling problems and disturbing sleep.",
+    "source_reference": "Vastu mirror principles"
+  },
+  {
+    "id": "REM-022",
+    "problem": "Bedroom door directly facing bed",
+    "room_type": "Bedroom",
+    "direction": "Any",
+    "severity": "Medium",
+    "remedies": [
+      "Place a curtain or screen between door and bed",
+      "Angle bed so feet don't point directly at door",
+      "Place a small crystal or plant between door and bed"
+    ],
+    "decor_adjustments": [
+      "Room divider or screen",
+      "Floor plant near door",
+      "Curtain on door"
+    ],
+    "lighting_suggestions": [
+      "Soft lighting in bedroom",
+      "No harsh overhead light"
+    ],
+    "notes": "Bed in direct line of door creates energy drain (Sha energy). Screen or plant breaks this.",
+    "source_reference": "Vastu bedroom flow principles"
+  },
+  {
+    "id": "REM-030",
+    "problem": "Living Room in South-West",
+    "room_type": "Living Room",
+    "direction": "South-West",
+    "severity": "Medium",
+    "remedies": [
+      "Place heaviest sofa and furniture in South-West",
+      "Use earth tones throughout",
+      "Hang family photos on South wall",
+      "No water features in this living room",
+      "Place square or rectangular rugs"
+    ],
+    "decor_adjustments": [
+      "Heavy wooden furniture",
+      "Earth tone cushions",
+      "No blue or black decor"
+    ],
+    "lighting_suggestions": [
+      "Warm yellow lighting",
+      "No cool white lights"
+    ],
+    "notes": "South-West living room needs grounding with heavy furniture and earth tones.",
+    "source_reference": "Vastu living room remedies"
+  },
+  {
+    "id": "REM-031",
+    "problem": "No natural light in living room",
+    "room_type": "Living Room",
+    "direction": "Any",
+    "severity": "Medium",
+    "remedies": [
+      "Install mirrors on North or East wall to reflect light",
+      "Use warm yellow lighting",
+      "Place crystals near light sources",
+      "Use light reflective paint colours",
+      "Full-spectrum daylight bulbs"
+    ],
+    "decor_adjustments": [
+      "Mirrors on North/East walls",
+      "Light cream or white walls",
+      "Sheer curtains instead of heavy ones"
+    ],
+    "lighting_suggestions": [
+      "Full-spectrum daylight bulbs",
+      "Crystal chandelier to distribute light"
+    ],
+    "notes": "Natural light is essential Prana. Mirrors and crystals can amplify available light.",
+    "source_reference": "Vastu light energy principles"
+  },
+  {
+    "id": "REM-032",
+    "problem": "Clutter in North-East corner",
+    "room_type": "Any Room",
+    "direction": "North-East",
+    "severity": "High",
+    "remedies": [
+      "Remove all clutter immediately",
+      "Deep clean the North-East corner",
+      "Place a crystal ball or Vastu pyramid here",
+      "Add a small indoor plant",
+      "Bowl of sea salt to cleanse after decluttering"
+    ],
+    "decor_adjustments": [
+      "Keep North-East open and light",
+      "Only place sacred items here",
+      "Crystal or small water feature acceptable"
+    ],
+    "lighting_suggestions": [
+      "Bright natural light in North-East",
+      "No heavy lamps or dark fixtures"
+    ],
+    "notes": "Cluttered North-East is the most serious Vastu defect \u2014 affects health, wealth and spiritual energy.",
+    "source_reference": "Vastu North-East zone principles"
+  },
+  {
+    "id": "REM-040",
+    "problem": "South-West entrance",
+    "room_type": "Entrance",
+    "direction": "South-West",
+    "severity": "High",
+    "remedies": [
+      "Place large Ganesha above door",
+      "Hang a lead (sisa) strip on door threshold",
+      "Place a Vastu pyramid buried near entrance",
+      "Use very bright lighting at entrance",
+      "Hang a Sri Yantra near entrance"
+    ],
+    "decor_adjustments": [
+      "Bright gold door",
+      "Strong overhead light",
+      "Remove any darkness near entrance",
+      "Fresh flowers at door daily"
+    ],
+    "lighting_suggestions": [
+      "Very bright entrance light",
+      "Never a dark entrance"
+    ],
+    "notes": "South-West entrance is considered highly inauspicious. Maximum remedies and bright lighting essential.",
+    "source_reference": "Vastu entrance direction remedies"
+  },
+  {
+    "id": "REM-041",
+    "problem": "South entrance",
+    "room_type": "Entrance",
+    "direction": "South",
+    "severity": "Medium",
+    "remedies": [
+      "Ganesha above door mandatory",
+      "Bright red door to activate fire energy",
+      "Bright lighting at entrance",
+      "Two symmetrical plants at door",
+      "Vastu pyramid near entrance"
+    ],
+    "decor_adjustments": [
+      "Red or deep wood colour door",
+      "Symmetrical planters",
+      "Bright nameplate"
+    ],
+    "lighting_suggestions": [
+      "Very bright entrance lights",
+      "Warm golden tone lights"
+    ],
+    "notes": "South entrance needs bright light and Ganesha protection. Red door activates protective fire energy.",
+    "source_reference": "Vastu South entrance remedies"
+  },
+  {
+    "id": "REM-042",
+    "problem": "Dark or poorly lit entrance",
+    "room_type": "Entrance",
+    "direction": "Any",
+    "severity": "Medium",
+    "remedies": [
+      "Install bright warm lights immediately",
+      "Place mirrors to reflect light",
+      "Use light wall colours",
+      "Fresh flowers and plants",
+      "Crystal at entrance to attract positive energy"
+    ],
+    "decor_adjustments": [
+      "White or cream walls",
+      "Bright door colour",
+      "Clean and uncluttered"
+    ],
+    "lighting_suggestions": [
+      "Bright warm entrance light",
+      "Sensor light if dark at night",
+      "Crystal light fixture"
+    ],
+    "notes": "Dark entrance blocks positive energy from entering. Brighten immediately.",
+    "source_reference": "Vastu entrance energy principles"
+  },
+  {
+    "id": "REM-050",
+    "problem": "Aquarium in South or South-West",
+    "room_type": "Living Room",
+    "direction": "South",
+    "severity": "High",
+    "remedies": [
+      "Relocate aquarium to North-East or North immediately",
+      "If cannot move \u2014 place a Vastu pyramid between aquarium and South wall",
+      "Keep water very clean",
+      "Add red fish to aquarium to introduce fire element balance"
+    ],
+    "decor_adjustments": [
+      "Move to North zone",
+      "Place near North wall"
+    ],
+    "lighting_suggestions": [
+      "Warm aquarium lighting"
+    ],
+    "notes": "Water in South creates fire-water conflict causing financial losses. Relocate to North.",
+    "source_reference": "Vastu water element placement"
+  },
+  {
+    "id": "REM-051",
+    "problem": "Leaking taps or pipes",
+    "room_type": "Any",
+    "direction": "Any",
+    "severity": "High",
+    "remedies": [
+      "Fix all leaks immediately \u2014 represents wealth drain",
+      "Check all pipes once a month",
+      "Flowing or dripping water away from home = money leaving",
+      "Use copper pipes where possible"
+    ],
+    "decor_adjustments": [
+      "Copper pipe fixtures",
+      "Regular plumbing maintenance"
+    ],
+    "lighting_suggestions": [
+      "Good lighting in utility areas"
+    ],
+    "notes": "Leaking water represents continuous drain of wealth and prosperity. Fix immediately.",
+    "source_reference": "Vastu water energy principles"
+  },
+  {
+    "id": "REM-060",
+    "problem": "Beam above bed or dining table",
+    "room_type": "Bedroom",
+    "direction": "Any",
+    "severity": "High",
+    "remedies": [
+      "Do not sleep or sit directly under beam",
+      "Use false ceiling to hide beam",
+      "Hang two bamboo flutes at 45-degree angles on beam",
+      "Place a crystal or wind chime on beam"
+    ],
+    "decor_adjustments": [
+      "False ceiling solution",
+      "Bamboo flutes with red ribbon on beam",
+      "Move furniture out from under beam"
+    ],
+    "lighting_suggestions": [
+      "Uplighting to reduce beam shadow"
+    ],
+    "notes": "Exposed beams pressing down on sleeping or dining areas create pressure energy and health issues.",
+    "source_reference": "Vastu structural remedies"
+  },
+  {
+    "id": "REM-061",
+    "problem": "Staircase in centre of house",
+    "room_type": "Staircase",
+    "direction": "Centre",
+    "severity": "High",
+    "remedies": [
+      "Place a Vastu pyramid under the staircase",
+      "Use a crystal light fixture on the staircase",
+      "Place plants around base of staircase",
+      "Ensure excellent lighting on staircase",
+      "Place Ganesha at base of stairs"
+    ],
+    "decor_adjustments": [
+      "Bright warm lighting throughout staircase",
+      "Plants at base",
+      "Crystal or brass chandelier above staircase"
+    ],
+    "lighting_suggestions": [
+      "Very bright staircase lighting",
+      "No dark corners on staircase"
+    ],
+    "notes": "Central staircase cuts through Brahmasthana (sacred centre) causing energy disruption.",
+    "source_reference": "Vastu structural principles"
+  },
+  {
+    "id": "REM-062",
+    "problem": "Broken or cracked walls",
+    "room_type": "Any",
+    "direction": "Any",
+    "severity": "Medium",
+    "remedies": [
+      "Repair cracks immediately",
+      "Do not leave exposed brickwork",
+      "Apply fresh paint after repair",
+      "Smudge room with camphor after repair",
+      "Re-energise room with salt water spray"
+    ],
+    "decor_adjustments": [
+      "Fresh paint after repairs",
+      "Clean and well-maintained walls"
+    ],
+    "lighting_suggestions": [
+      "Good lighting throughout"
+    ],
+    "notes": "Cracks in walls represent broken energy. Repair and repaint to restore positive flow.",
+    "source_reference": "Vastu structural maintenance"
+  },
+  {
+    "id": "REM-070",
+    "problem": "General clutter throughout home",
+    "room_type": "Any",
+    "direction": "Any",
+    "severity": "Medium",
+    "remedies": [
+      "Declutter room by room \u2014 start with North-East",
+      "Donate unused items \u2014 old items block new energy",
+      "Clean under beds and in corners",
+      "Sea salt in corners after deep clean",
+      "Burn camphor in each room monthly"
+    ],
+    "decor_adjustments": [
+      "Organised storage",
+      "Minimalist approach",
+      "Regular disposal of broken items"
+    ],
+    "lighting_suggestions": [
+      "Bright natural light after decluttering"
+    ],
+    "notes": "Clutter is the biggest Vastu defect. Decluttering is the most powerful Vastu remedy available.",
+    "source_reference": "Vastu cleansing principles"
+  },
+  {
+    "id": "REM-071",
+    "problem": "Broken items in home",
+    "room_type": "Any",
+    "direction": "Any",
+    "severity": "Medium",
+    "remedies": [
+      "Remove all broken items immediately",
+      "Never keep broken clocks \u2014 they stop progress",
+      "Never keep broken idols \u2014 disrespectful energy",
+      "Fix broken windows and doors immediately",
+      "Remove dead plants and dried flowers"
+    ],
+    "decor_adjustments": [
+      "No broken furniture",
+      "Replace cracked mirrors immediately",
+      "Repair or donate \u2014 don't hoard broken items"
+    ],
+    "lighting_suggestions": [
+      "Good lighting to see damage clearly"
+    ],
+    "notes": "Broken items represent stagnant, broken energy. Remove or repair without delay.",
+    "source_reference": "Vastu object energy principles"
+  },
+  {
+    "id": "REM-080",
+    "problem": "Negative artwork or imagery in home",
+    "room_type": "Any",
+    "direction": "Any",
+    "severity": "Medium",
+    "remedies": [
+      "Remove war, violence or single crying figure paintings",
+      "Replace with nature scenes, sunrises, flowers",
+      "Family photos on South wall for harmony",
+      "Lakshmi or Ganesha artwork in North or North-East",
+      "Never display stuffed animals or hunting trophies"
+    ],
+    "decor_adjustments": [
+      "Positive nature artwork",
+      "Family and couple photos",
+      "Religious or spiritual artwork"
+    ],
+    "lighting_suggestions": [
+      "Artwork should be well lit"
+    ],
+    "notes": "Artwork depicting sadness, violence or loneliness manifests those energies in the home.",
+    "source_reference": "Vastu artwork principles"
+  },
+  {
+    "id": "REM-081",
+    "problem": "Cactus or thorny plants indoors",
+    "room_type": "Any",
+    "direction": "Any",
+    "severity": "Medium",
+    "remedies": [
+      "Remove cactus from inside home",
+      "Replace with money plant, bamboo or tulsi",
+      "If sentimental \u2014 keep on outer balcony only",
+      "Replace with jade plant or snake plant"
+    ],
+    "decor_adjustments": [
+      "Replace with auspicious plants",
+      "Money plant in North-East",
+      "Bamboo in East or North"
+    ],
+    "lighting_suggestions": [
+      "Good natural light for replacement plants"
+    ],
+    "notes": "Cactus and thorny plants generate aggression and conflict energy inside homes.",
+    "source_reference": "Vastu plant energy principles"
+  },
+  {
+    "id": "REM-090",
+    "problem": "Black walls in bedroom",
+    "room_type": "Bedroom",
+    "direction": "Any",
+    "severity": "Medium",
+    "remedies": [
+      "Repaint with light cream, beige or pastel colours",
+      "If dark wall must remain \u2014 add warm lighting to compensate",
+      "Place yellow or gold accents to balance",
+      "Crystal or salt lamp in room"
+    ],
+    "decor_adjustments": [
+      "Light coloured bedding to compensate",
+      "Warm golden lamps",
+      "Remove dark heavy curtains"
+    ],
+    "lighting_suggestions": [
+      "Extra warm lighting to compensate",
+      "Salt lamp as nightlight"
+    ],
+    "notes": "Black absorbs all energy in bedroom causing depression and poor sleep. Repaint to lighter tones.",
+    "source_reference": "Vastu bedroom colour remedies"
+  },
+  {
+    "id": "REM-091",
+    "problem": "Red walls in bedroom",
+    "room_type": "Bedroom",
+    "direction": "Any",
+    "severity": "Medium",
+    "remedies": [
+      "Repaint with soft pink, peach or rose",
+      "Use cream or white bedding to balance",
+      "Remove red curtains",
+      "Add blue accents for cooling balance"
+    ],
+    "decor_adjustments": [
+      "Soft rose or peach tones",
+      "White linen bedding",
+      "Blue accent cushions"
+    ],
+    "lighting_suggestions": [
+      "Cool soft lighting to balance fire energy",
+      "Blue tinted night lamp"
+    ],
+    "notes": "Red in bedroom overstimulates fire energy causing poor sleep and relationship tension.",
+    "source_reference": "Vastu colour therapy"
+  },
+  {
+    "id": "REM-100",
+    "problem": "General negative energy in home",
+    "room_type": "Any",
+    "direction": "Any",
+    "severity": "Medium",
+    "remedies": [
+      "Light camphor in each room weekly",
+      "Sea salt bowls in all corners",
+      "Burn sage or incense daily",
+      "Play sacred music or mantras daily",
+      "Keep fresh flowers at entrance"
+    ],
+    "decor_adjustments": [
+      "Fresh flowers regularly",
+      "Salt lamps in corners",
+      "Crystal grid in centre of home"
+    ],
+    "lighting_suggestions": [
+      "Bright clean lights throughout",
+      "No dark corners"
+    ],
+    "notes": "Regular energy cleansing with camphor, salt and sacred sounds maintains positive home energy.",
+    "source_reference": "Vastu energy cleansing principles"
+  },
+  {
+    "id": "REM-101",
+    "problem": "Financial difficulties",
+    "room_type": "Any",
+    "direction": "North",
+    "severity": "High",
+    "remedies": [
+      "Place Kubera yantra on North wall",
+      "Locker opening direction must face North",
+      "Money plant in North-East",
+      "Aquarium in North or North-East",
+      "Green and blue tones in North zone",
+      "No toilet in North"
+    ],
+    "decor_adjustments": [
+      "Green plants in North",
+      "Gold or brass decor in North",
+      "Kubera or Lakshmi idol in North-East"
+    ],
+    "lighting_suggestions": [
+      "Good lighting in North zone",
+      "Green-tinted lamp in North"
+    ],
+    "notes": "Financial difficulties often caused by Vastu defects in North zone. Strengthen with Kubera remedies.",
+    "source_reference": "Vastu wealth activation principles"
+  },
+  {
+    "id": "REM-102",
+    "problem": "Health issues in family",
+    "room_type": "Any",
+    "direction": "North-East",
+    "severity": "High",
+    "remedies": [
+      "Deep clean North-East zone",
+      "Place aloe vera or tulsi in North-East",
+      "Remove toilet if in North-East (structural remedy)",
+      "Copper water pot in North-East",
+      "Morning sunlight in North-East zone"
+    ],
+    "decor_adjustments": [
+      "Light and open North-East",
+      "Crystal in North-East window",
+      "White or cream walls in North-East"
+    ],
+    "lighting_suggestions": [
+      "Maximum natural light in North-East",
+      "No artificial lights preferred in North-East during day"
+    ],
+    "notes": "Persistent family health issues often linked to compromised North-East zone. Cleanse and open this zone.",
+    "source_reference": "Vastu health zone remedies"
+  },
+  {
+    "id": "REM-103",
+    "problem": "Relationship or marriage difficulties",
+    "room_type": "Bedroom",
+    "direction": "South-West",
+    "severity": "High",
+    "remedies": [
+      "Place rose quartz crystals in South-West of bedroom",
+      "Couple photos in South-West of home",
+      "Remove single figure artwork from bedroom",
+      "Paired decor items throughout bedroom",
+      "No cactus or thorny plants in bedroom",
+      "Red roses in bedroom"
+    ],
+    "decor_adjustments": [
+      "Paired items (candles, lamps, cushions)",
+      "Rose and peach tones",
+      "Remove mirrors facing bed"
+    ],
+    "lighting_suggestions": [
+      "Warm rose-tinted lighting",
+      "Candles in South-West of bedroom"
+    ],
+    "notes": "South-West zone governs relationships. Rose quartz and paired items strengthen relationship energy.",
+    "source_reference": "Vastu relationship remedies"
+  },
+  {
+    "id": "REM-104",
+    "problem": "Children's academic performance issues",
+    "room_type": "Study Room",
+    "direction": "East",
+    "severity": "Medium",
+    "remedies": [
+      "Ensure desk faces East or North",
+      "Place Saraswati idol or image at desk",
+      "Yellow flowers at study desk",
+      "Crystal paperweight for focus",
+      "No TV or phone at study desk",
+      "Green plant at desk"
+    ],
+    "decor_adjustments": [
+      "East-facing desk mandatory",
+      "Blue and green study room colours",
+      "Saraswati image prominently placed"
+    ],
+    "lighting_suggestions": [
+      "Bright natural morning light from East",
+      "Good task lighting at desk"
+    ],
+    "notes": "Study facing East with Saraswati's blessing significantly improves academic performance.",
+    "source_reference": "Vastu education remedies"
+  },
+  {
+    "id": "REM-105",
+    "problem": "Business or career stagnation",
+    "room_type": "Home Office",
+    "direction": "North",
+    "severity": "High",
+    "remedies": [
+      "Ensure office or desk is in North zone",
+      "Face North or East while working",
+      "Place Ganesha on desk (removes obstacles)",
+      "Green plant in North",
+      "Kubera yantra in North of office",
+      "Clear desk every evening"
+    ],
+    "decor_adjustments": [
+      "Green plants in office",
+      "North-facing desk",
+      "Blue and green tones",
+      "No clutter on desk"
+    ],
+    "lighting_suggestions": [
+      "Bright work lighting",
+      "Natural light from North preferred"
+    ],
+    "notes": "Career stagnation often caused by desk facing wrong direction. North or East facing boosts opportunities.",
+    "source_reference": "Vastu career and business remedies"
+  }
+]

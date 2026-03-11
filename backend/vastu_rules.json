@@ -1,0 +1,2502 @@
+[
+  {
+    "id": "VR-001",
+    "room_type": "Entrance",
+    "ideal_direction": [
+      "North",
+      "East",
+      "North-East"
+    ],
+    "acceptable_direction": [
+      "North-West"
+    ],
+    "avoid_direction": [
+      "South",
+      "South-West",
+      "South-East"
+    ],
+    "recommended_colors": [
+      "white",
+      "cream",
+      "light wood",
+      "gold"
+    ],
+    "recommended_materials": [
+      "wood",
+      "brass",
+      "teak"
+    ],
+    "recommended_elements": [
+      "good lighting",
+      "toran",
+      "Ganesha idol",
+      "rangoli",
+      "name plate"
+    ],
+    "notes": "Main entrance should allow natural light. North brings wealth (Kubera), East brings solar energy.",
+    "source_reference": "Classical Vastu Shastra principles"
+  },
+  {
+    "id": "VR-002",
+    "room_type": "Entrance",
+    "ideal_direction": [
+      "North",
+      "East"
+    ],
+    "acceptable_direction": [
+      "West"
+    ],
+    "avoid_direction": [
+      "South",
+      "South-West"
+    ],
+    "recommended_colors": [
+      "yellow",
+      "green",
+      "white"
+    ],
+    "recommended_materials": [
+      "wood",
+      "marble",
+      "brass"
+    ],
+    "recommended_elements": [
+      "fresh flowers",
+      "clean mat",
+      "bright light",
+      "wind chime in North-East"
+    ],
+    "notes": "Entrance should be larger than back door. Avoid clutter at entrance.",
+    "source_reference": "Vastu Vidya guidelines"
+  },
+  {
+    "id": "VR-003",
+    "room_type": "Entrance",
+    "ideal_direction": [
+      "North-East"
+    ],
+    "acceptable_direction": [
+      "East",
+      "North"
+    ],
+    "avoid_direction": [
+      "South-West",
+      "South"
+    ],
+    "recommended_colors": [
+      "white",
+      "light yellow"
+    ],
+    "recommended_materials": [
+      "teak",
+      "brass",
+      "marble"
+    ],
+    "recommended_elements": [
+      "Ganesha above door",
+      "marigold toran",
+      "diya stand",
+      "rangoli"
+    ],
+    "notes": "North-East entrance is most auspicious. Place Ganesha idol above door frame.",
+    "source_reference": "Traditional Indian Vastu"
+  },
+  {
+    "id": "VR-010",
+    "room_type": "Living Room",
+    "ideal_direction": [
+      "North",
+      "East",
+      "North-East"
+    ],
+    "acceptable_direction": [
+      "North-West"
+    ],
+    "avoid_direction": [
+      "South-West",
+      "South-East"
+    ],
+    "recommended_colors": [
+      "cream",
+      "white",
+      "light yellow",
+      "beige"
+    ],
+    "recommended_materials": [
+      "wood",
+      "marble",
+      "linen"
+    ],
+    "recommended_elements": [
+      "plants",
+      "natural light",
+      "brass decor",
+      "family photos on South wall"
+    ],
+    "notes": "Keep North-East corner of living room open and clutter-free.",
+    "source_reference": "Vastu living room guidelines"
+  },
+  {
+    "id": "VR-011",
+    "room_type": "Living Room",
+    "ideal_direction": [
+      "East"
+    ],
+    "acceptable_direction": [
+      "North",
+      "North-East"
+    ],
+    "avoid_direction": [
+      "South",
+      "South-West"
+    ],
+    "recommended_colors": [
+      "green",
+      "light blue",
+      "cream"
+    ],
+    "recommended_materials": [
+      "wood",
+      "cotton",
+      "jute"
+    ],
+    "recommended_elements": [
+      "indoor plants",
+      "natural light",
+      "low furniture",
+      "water feature in North"
+    ],
+    "notes": "East-facing living room receives morning solar energy promoting vitality.",
+    "source_reference": "Vastu Shastra principles"
+  },
+  {
+    "id": "VR-012",
+    "room_type": "Living Room",
+    "ideal_direction": [
+      "North-East"
+    ],
+    "acceptable_direction": [
+      "North",
+      "East"
+    ],
+    "avoid_direction": [
+      "South-West",
+      "West"
+    ],
+    "recommended_colors": [
+      "white",
+      "ivory",
+      "light green"
+    ],
+    "recommended_materials": [
+      "marble",
+      "wood",
+      "glass"
+    ],
+    "recommended_elements": [
+      "money plant",
+      "crystal bowl",
+      "brass lamp",
+      "open space"
+    ],
+    "notes": "Sofa should be placed against South or West wall. TV in South-East corner.",
+    "source_reference": "Modern Vastu applications"
+  },
+  {
+    "id": "VR-013",
+    "room_type": "Living Room",
+    "ideal_direction": [
+      "North"
+    ],
+    "acceptable_direction": [
+      "East",
+      "North-East"
+    ],
+    "avoid_direction": [
+      "South",
+      "South-East"
+    ],
+    "recommended_colors": [
+      "blue",
+      "white",
+      "silver"
+    ],
+    "recommended_materials": [
+      "metal",
+      "glass",
+      "marble"
+    ],
+    "recommended_elements": [
+      "aquarium in North-East",
+      "wind chime",
+      "crystal",
+      "mirrors on North wall"
+    ],
+    "notes": "Blue and silver in North living room attracts water element prosperity.",
+    "source_reference": "Five elements Vastu theory"
+  },
+  {
+    "id": "VR-014",
+    "room_type": "Living Room",
+    "ideal_direction": [
+      "East",
+      "North"
+    ],
+    "acceptable_direction": [
+      "North-West"
+    ],
+    "avoid_direction": [
+      "South",
+      "South-West"
+    ],
+    "recommended_colors": [
+      "yellow",
+      "orange",
+      "cream"
+    ],
+    "recommended_materials": [
+      "teak",
+      "cane",
+      "cotton"
+    ],
+    "recommended_elements": [
+      "sunrise artwork",
+      "brass decor",
+      "fresh flowers",
+      "natural ventilation"
+    ],
+    "notes": "Avoid heavy dark curtains in East-facing living rooms. Allow morning light in.",
+    "source_reference": "Vastu for Indian homes"
+  },
+  {
+    "id": "VR-020",
+    "room_type": "Master Bedroom",
+    "ideal_direction": [
+      "South-West"
+    ],
+    "acceptable_direction": [
+      "West",
+      "South"
+    ],
+    "avoid_direction": [
+      "North-East",
+      "North",
+      "East"
+    ],
+    "recommended_colors": [
+      "beige",
+      "cream",
+      "light brown",
+      "peach"
+    ],
+    "recommended_materials": [
+      "wood",
+      "cotton",
+      "silk"
+    ],
+    "recommended_elements": [
+      "calm lighting",
+      "paired decor",
+      "south-facing bed head"
+    ],
+    "notes": "Master bedroom in South-West promotes stability and strength. Bed head must face South.",
+    "source_reference": "Classical Vastu bedroom rules"
+  },
+  {
+    "id": "VR-021",
+    "room_type": "Master Bedroom",
+    "ideal_direction": [
+      "South"
+    ],
+    "acceptable_direction": [
+      "South-West",
+      "West"
+    ],
+    "avoid_direction": [
+      "North-East",
+      "East"
+    ],
+    "recommended_colors": [
+      "earth tones",
+      "burgundy",
+      "brown"
+    ],
+    "recommended_materials": [
+      "teak",
+      "walnut",
+      "cotton",
+      "silk"
+    ],
+    "recommended_elements": [
+      "heavy bed frame",
+      "wooden wardrobe in South-West",
+      "no mirror facing bed"
+    ],
+    "notes": "South bedroom activates fire element \u2014 use warm earth tones to balance.",
+    "source_reference": "Vastu Shastra bedroom principles"
+  },
+  {
+    "id": "VR-022",
+    "room_type": "Master Bedroom",
+    "ideal_direction": [
+      "West"
+    ],
+    "acceptable_direction": [
+      "South-West",
+      "South"
+    ],
+    "avoid_direction": [
+      "North-East",
+      "North"
+    ],
+    "recommended_colors": [
+      "white",
+      "grey",
+      "silver",
+      "lavender"
+    ],
+    "recommended_materials": [
+      "metal",
+      "glass",
+      "cotton"
+    ],
+    "recommended_elements": [
+      "west window",
+      "moon motifs",
+      "soft lighting",
+      "no electronics"
+    ],
+    "notes": "West bedroom attracts creativity and introspection. No TV or electronics near bed.",
+    "source_reference": "Modern Vastu guidelines"
+  },
+  {
+    "id": "VR-023",
+    "room_type": "Children Bedroom",
+    "ideal_direction": [
+      "East",
+      "North"
+    ],
+    "acceptable_direction": [
+      "North-East",
+      "West"
+    ],
+    "avoid_direction": [
+      "South-West",
+      "South"
+    ],
+    "recommended_colors": [
+      "green",
+      "yellow",
+      "sky blue",
+      "white"
+    ],
+    "recommended_materials": [
+      "wood",
+      "cotton",
+      "bamboo"
+    ],
+    "recommended_elements": [
+      "east-facing study desk",
+      "Saraswati image",
+      "bright natural light",
+      "plants"
+    ],
+    "notes": "Children sleep with head pointing East for academic growth and solar energy.",
+    "source_reference": "Vastu for children's spaces"
+  },
+  {
+    "id": "VR-024",
+    "room_type": "Guest Bedroom",
+    "ideal_direction": [
+      "North-West"
+    ],
+    "acceptable_direction": [
+      "West",
+      "East"
+    ],
+    "avoid_direction": [
+      "South-West",
+      "North-East"
+    ],
+    "recommended_colors": [
+      "light grey",
+      "cream",
+      "pale yellow"
+    ],
+    "recommended_materials": [
+      "wood",
+      "linen",
+      "cotton"
+    ],
+    "recommended_elements": [
+      "simple decor",
+      "neutral tones",
+      "welcome energy",
+      "fresh flowers"
+    ],
+    "notes": "North-West guest room ensures guests don't overstay \u2014 promotes movement energy.",
+    "source_reference": "Vastu spatial principles"
+  },
+  {
+    "id": "VR-030",
+    "room_type": "Kitchen",
+    "ideal_direction": [
+      "South-East"
+    ],
+    "acceptable_direction": [
+      "North-West"
+    ],
+    "avoid_direction": [
+      "North-East",
+      "South-West",
+      "North"
+    ],
+    "recommended_colors": [
+      "orange",
+      "red",
+      "yellow",
+      "saffron"
+    ],
+    "recommended_materials": [
+      "copper",
+      "steel",
+      "wood",
+      "terracotta"
+    ],
+    "recommended_elements": [
+      "fire element",
+      "good ventilation",
+      "cook faces East",
+      "copper vessels"
+    ],
+    "notes": "Kitchen in South-East (Agni corner) is ideal. Cook should always face East.",
+    "source_reference": "Traditional Vastu kitchen guidelines"
+  },
+  {
+    "id": "VR-031",
+    "room_type": "Kitchen",
+    "ideal_direction": [
+      "North-West"
+    ],
+    "acceptable_direction": [
+      "South-East"
+    ],
+    "avoid_direction": [
+      "North-East",
+      "South-West"
+    ],
+    "recommended_colors": [
+      "white",
+      "cream",
+      "light yellow"
+    ],
+    "recommended_materials": [
+      "steel",
+      "ceramic",
+      "wood"
+    ],
+    "recommended_elements": [
+      "Vastu pyramid in South-East",
+      "copper near stove",
+      "face East while cooking"
+    ],
+    "notes": "North-West kitchen is acceptable with remedies. Ensure cook always faces East.",
+    "source_reference": "Vastu kitchen remedy principles"
+  },
+  {
+    "id": "VR-032",
+    "room_type": "Kitchen",
+    "ideal_direction": [
+      "South-East"
+    ],
+    "acceptable_direction": [
+      "North-West"
+    ],
+    "avoid_direction": [
+      "North-East"
+    ],
+    "recommended_colors": [
+      "terracotta",
+      "burnt orange",
+      "copper"
+    ],
+    "recommended_materials": [
+      "copper",
+      "brass",
+      "clay",
+      "teak"
+    ],
+    "recommended_elements": [
+      "no sink adjacent to stove",
+      "spices in South-East",
+      "herb garden facing East",
+      "brass taps"
+    ],
+    "notes": "Sink (water) and stove (fire) must never be adjacent \u2014 creates elemental conflict.",
+    "source_reference": "Five elements Vastu principles"
+  },
+  {
+    "id": "VR-033",
+    "room_type": "Kitchen",
+    "ideal_direction": [
+      "South-East"
+    ],
+    "acceptable_direction": [
+      "North-West"
+    ],
+    "avoid_direction": [
+      "North-East",
+      "North"
+    ],
+    "recommended_colors": [
+      "red",
+      "orange",
+      "yellow"
+    ],
+    "recommended_materials": [
+      "copper",
+      "terracotta",
+      "wood"
+    ],
+    "recommended_elements": [
+      "refrigerator in South-West",
+      "no black in kitchen",
+      "tulsi plant at window"
+    ],
+    "notes": "Refrigerator should be in South-West or West. Never in North-East corner.",
+    "source_reference": "Vastu appliance placement"
+  },
+  {
+    "id": "VR-040",
+    "room_type": "Pooja Room",
+    "ideal_direction": [
+      "North-East"
+    ],
+    "acceptable_direction": [
+      "East",
+      "North"
+    ],
+    "avoid_direction": [
+      "South",
+      "South-West",
+      "bedroom wall"
+    ],
+    "recommended_colors": [
+      "white",
+      "yellow",
+      "cream",
+      "saffron"
+    ],
+    "recommended_materials": [
+      "marble",
+      "teak",
+      "brass",
+      "copper"
+    ],
+    "recommended_elements": [
+      "idols face East or West",
+      "oil lamp",
+      "fresh flowers",
+      "bells",
+      "incense"
+    ],
+    "notes": "Pooja room must always be in North-East. Idols should never face South.",
+    "source_reference": "Sacred Vastu principles"
+  },
+  {
+    "id": "VR-041",
+    "room_type": "Pooja Room",
+    "ideal_direction": [
+      "North-East"
+    ],
+    "acceptable_direction": [
+      "East"
+    ],
+    "avoid_direction": [
+      "South",
+      "bedroom wall",
+      "toilet wall"
+    ],
+    "recommended_colors": [
+      "pure white",
+      "light yellow",
+      "gold"
+    ],
+    "recommended_materials": [
+      "white marble",
+      "teak",
+      "brass",
+      "gold"
+    ],
+    "recommended_elements": [
+      "Ganesha at entrance",
+      "separate entrance",
+      "no bedroom wall shared",
+      "daily fresh flowers"
+    ],
+    "notes": "Pooja room should not share wall with toilet. Keep separate and sacred.",
+    "source_reference": "Classical Vastu temple rules"
+  },
+  {
+    "id": "VR-042",
+    "room_type": "Pooja Room",
+    "ideal_direction": [
+      "North-East"
+    ],
+    "acceptable_direction": [
+      "East",
+      "North"
+    ],
+    "avoid_direction": [
+      "South-West",
+      "South",
+      "West"
+    ],
+    "recommended_colors": [
+      "white",
+      "cream",
+      "pale yellow"
+    ],
+    "recommended_materials": [
+      "marble",
+      "sandalwood",
+      "brass",
+      "copper"
+    ],
+    "recommended_elements": [
+      "idols at eye-level when seated",
+      "no photo of deceased",
+      "copper kalash",
+      "akhand diya"
+    ],
+    "notes": "Idol height should be at eye level when seated for prayer. No photos of deceased in pooja room.",
+    "source_reference": "Agama Shastra principles"
+  },
+  {
+    "id": "VR-050",
+    "room_type": "Study Room",
+    "ideal_direction": [
+      "North",
+      "East"
+    ],
+    "acceptable_direction": [
+      "North-East",
+      "West"
+    ],
+    "avoid_direction": [
+      "South",
+      "South-West"
+    ],
+    "recommended_colors": [
+      "green",
+      "blue",
+      "white",
+      "cream"
+    ],
+    "recommended_materials": [
+      "wood",
+      "bamboo",
+      "cotton"
+    ],
+    "recommended_elements": [
+      "desk faces East or North",
+      "books on South wall",
+      "Saraswati image",
+      "money plant",
+      "no clutter"
+    ],
+    "notes": "Study room in North (Kubera zone) enhances knowledge and wealth. Face East while studying.",
+    "source_reference": "Vastu education principles"
+  },
+  {
+    "id": "VR-051",
+    "room_type": "Study Room",
+    "ideal_direction": [
+      "East"
+    ],
+    "acceptable_direction": [
+      "North",
+      "North-East"
+    ],
+    "avoid_direction": [
+      "South-West",
+      "South",
+      "West"
+    ],
+    "recommended_colors": [
+      "yellow",
+      "light green",
+      "sky blue"
+    ],
+    "recommended_materials": [
+      "teak",
+      "bamboo",
+      "linen"
+    ],
+    "recommended_elements": [
+      "east window for morning light",
+      "Saraswati idol",
+      "crystal paperweight",
+      "no TV in study"
+    ],
+    "notes": "East-facing study receives Surya blessings \u2014 enhances memory and focus.",
+    "source_reference": "Vastu for academic success"
+  },
+  {
+    "id": "VR-052",
+    "room_type": "Study Room",
+    "ideal_direction": [
+      "North-East"
+    ],
+    "acceptable_direction": [
+      "North",
+      "East"
+    ],
+    "avoid_direction": [
+      "South",
+      "South-West"
+    ],
+    "recommended_colors": [
+      "blue",
+      "white",
+      "green"
+    ],
+    "recommended_materials": [
+      "wood",
+      "bamboo",
+      "glass"
+    ],
+    "recommended_elements": [
+      "pyramid on shelf",
+      "crystal grid",
+      "Saraswati yantra",
+      "north-facing bookshelf"
+    ],
+    "notes": "Books should be kept on South or West wall. Never stack books on floor.",
+    "source_reference": "Vastu knowledge principles"
+  },
+  {
+    "id": "VR-060",
+    "room_type": "Toilet",
+    "ideal_direction": [
+      "West",
+      "North-West"
+    ],
+    "acceptable_direction": [
+      "South"
+    ],
+    "avoid_direction": [
+      "North-East",
+      "South-West",
+      "East",
+      "North"
+    ],
+    "recommended_colors": [
+      "light grey",
+      "white",
+      "pale blue"
+    ],
+    "recommended_materials": [
+      "ceramic",
+      "porcelain",
+      "tile"
+    ],
+    "recommended_elements": [
+      "strong ventilation",
+      "exhaust fan",
+      "keep door closed",
+      "sea salt bowl"
+    ],
+    "notes": "Toilets in North-East zone are highly inauspicious \u2014 cause health and financial issues.",
+    "source_reference": "General Vastu sanitation rules"
+  },
+  {
+    "id": "VR-061",
+    "room_type": "Bathroom",
+    "ideal_direction": [
+      "North-West",
+      "West"
+    ],
+    "acceptable_direction": [
+      "South",
+      "East"
+    ],
+    "avoid_direction": [
+      "North-East",
+      "South-West"
+    ],
+    "recommended_colors": [
+      "white",
+      "light blue",
+      "mint green"
+    ],
+    "recommended_materials": [
+      "ceramic",
+      "marble",
+      "tile"
+    ],
+    "recommended_elements": [
+      "good drainage",
+      "exhaust fan",
+      "plants like aloe vera",
+      "sea salt"
+    ],
+    "notes": "Bathroom door should always be kept closed. Use light colours for walls.",
+    "source_reference": "Vastu bathroom guidelines"
+  },
+  {
+    "id": "VR-062",
+    "room_type": "Toilet",
+    "ideal_direction": [
+      "South",
+      "West"
+    ],
+    "acceptable_direction": [
+      "North-West"
+    ],
+    "avoid_direction": [
+      "North-East",
+      "North",
+      "East"
+    ],
+    "recommended_colors": [
+      "white",
+      "cream",
+      "grey"
+    ],
+    "recommended_materials": [
+      "ceramic",
+      "tile",
+      "glass"
+    ],
+    "recommended_elements": [
+      "ventilation window",
+      "no mirrors on North or East",
+      "sea salt remedy",
+      "clean drain"
+    ],
+    "notes": "Seat in toilet should face North or South, never East (direction of prayer).",
+    "source_reference": "Vastu sanitation principles"
+  },
+  {
+    "id": "VR-070",
+    "room_type": "Dining Room",
+    "ideal_direction": [
+      "East",
+      "West"
+    ],
+    "acceptable_direction": [
+      "South"
+    ],
+    "avoid_direction": [
+      "North-East",
+      "South-West"
+    ],
+    "recommended_colors": [
+      "cream",
+      "yellow",
+      "light orange"
+    ],
+    "recommended_materials": [
+      "wood",
+      "marble",
+      "glass"
+    ],
+    "recommended_elements": [
+      "overhead light",
+      "fresh fruits on table",
+      "family dine facing East",
+      "no TV while eating"
+    ],
+    "notes": "Dining room in East or West promotes family bonding. Family should face East or North while eating.",
+    "source_reference": "Vastu dining principles"
+  },
+  {
+    "id": "VR-071",
+    "room_type": "Dining Room",
+    "ideal_direction": [
+      "West"
+    ],
+    "acceptable_direction": [
+      "East",
+      "South"
+    ],
+    "avoid_direction": [
+      "North-East",
+      "North"
+    ],
+    "recommended_colors": [
+      "orange",
+      "warm yellow",
+      "terracotta"
+    ],
+    "recommended_materials": [
+      "teak",
+      "marble",
+      "brass"
+    ],
+    "recommended_elements": [
+      "rectangular table",
+      "overhead chandelier",
+      "fruits bowl",
+      "no mirrors facing dining table"
+    ],
+    "notes": "Rectangular dining table preferred over round in formal settings. Avoid mirrors facing dining table.",
+    "source_reference": "Vastu for dining harmony"
+  },
+  {
+    "id": "VR-072",
+    "room_type": "Dining Room",
+    "ideal_direction": [
+      "East"
+    ],
+    "acceptable_direction": [
+      "West",
+      "South"
+    ],
+    "avoid_direction": [
+      "North-East",
+      "South-West"
+    ],
+    "recommended_colors": [
+      "light yellow",
+      "cream",
+      "peach"
+    ],
+    "recommended_materials": [
+      "wood",
+      "cane",
+      "linen"
+    ],
+    "recommended_elements": [
+      "east window",
+      "fresh flowers",
+      "warm lighting",
+      "family photos on South wall"
+    ],
+    "notes": "East dining room receives morning Prana \u2014 best for breakfast and family meals.",
+    "source_reference": "Vastu morning energy principles"
+  },
+  {
+    "id": "VR-080",
+    "room_type": "Staircase",
+    "ideal_direction": [
+      "South",
+      "West",
+      "South-West"
+    ],
+    "acceptable_direction": [
+      "South-East"
+    ],
+    "avoid_direction": [
+      "North-East",
+      "Centre of house"
+    ],
+    "recommended_colors": [
+      "light wood",
+      "cream",
+      "white"
+    ],
+    "recommended_materials": [
+      "wood",
+      "marble",
+      "stone"
+    ],
+    "recommended_elements": [
+      "clockwise direction",
+      "odd number of steps",
+      "no staircase in centre"
+    ],
+    "notes": "Staircase should always turn clockwise when ascending. Odd number of steps is auspicious.",
+    "source_reference": "Vastu staircase principles"
+  },
+  {
+    "id": "VR-081",
+    "room_type": "Staircase",
+    "ideal_direction": [
+      "South-West",
+      "South"
+    ],
+    "acceptable_direction": [
+      "West"
+    ],
+    "avoid_direction": [
+      "North-East",
+      "Centre"
+    ],
+    "recommended_colors": [
+      "natural wood",
+      "beige",
+      "cream"
+    ],
+    "recommended_materials": [
+      "teak",
+      "marble",
+      "stone"
+    ],
+    "recommended_elements": [
+      "no broken steps",
+      "good lighting",
+      "no storage under stairs (or keep clean)",
+      "plants beside staircase"
+    ],
+    "notes": "No broken or cracked steps \u2014 repair immediately as they cause financial setbacks.",
+    "source_reference": "Vastu structural principles"
+  },
+  {
+    "id": "VR-090",
+    "room_type": "Balcony",
+    "ideal_direction": [
+      "North-East",
+      "East",
+      "North"
+    ],
+    "acceptable_direction": [
+      "West"
+    ],
+    "avoid_direction": [
+      "South-West",
+      "South"
+    ],
+    "recommended_colors": [
+      "green",
+      "white",
+      "cream"
+    ],
+    "recommended_materials": [
+      "wood",
+      "cane",
+      "terracotta"
+    ],
+    "recommended_elements": [
+      "plants",
+      "wind chime in North-East",
+      "bird feeder",
+      "morning yoga space"
+    ],
+    "notes": "North-East balcony is most auspicious \u2014 allows maximum positive morning energy.",
+    "source_reference": "Vastu outdoor space principles"
+  },
+  {
+    "id": "VR-091",
+    "room_type": "Balcony",
+    "ideal_direction": [
+      "East"
+    ],
+    "acceptable_direction": [
+      "North",
+      "North-East"
+    ],
+    "avoid_direction": [
+      "South",
+      "South-West"
+    ],
+    "recommended_colors": [
+      "orange",
+      "yellow",
+      "terracotta"
+    ],
+    "recommended_materials": [
+      "terracotta",
+      "bamboo",
+      "cane"
+    ],
+    "recommended_elements": [
+      "sunflowers",
+      "terracotta pots",
+      "sunrise view",
+      "yoga mat facing East"
+    ],
+    "notes": "East balcony captures sunrise energy \u2014 ideal for morning meditation and yoga.",
+    "source_reference": "Vastu sunrise energy"
+  },
+  {
+    "id": "VR-100",
+    "room_type": "Garage",
+    "ideal_direction": [
+      "North-West",
+      "South-East"
+    ],
+    "acceptable_direction": [
+      "East",
+      "North"
+    ],
+    "avoid_direction": [
+      "South-West",
+      "North-East"
+    ],
+    "recommended_colors": [
+      "grey",
+      "white",
+      "cream"
+    ],
+    "recommended_materials": [
+      "concrete",
+      "metal",
+      "tile"
+    ],
+    "recommended_elements": [
+      "good lighting",
+      "clean and organised",
+      "no clutter",
+      "Ganesha near garage door"
+    ],
+    "notes": "Garage in North-West is ideal as it belongs to the air/movement zone.",
+    "source_reference": "Vastu parking guidelines"
+  },
+  {
+    "id": "VR-110",
+    "room_type": "Water Feature",
+    "ideal_direction": [
+      "North-East",
+      "North",
+      "East"
+    ],
+    "acceptable_direction": [
+      "North-West"
+    ],
+    "avoid_direction": [
+      "South",
+      "South-West",
+      "South-East"
+    ],
+    "recommended_colors": [
+      "blue",
+      "teal",
+      "silver"
+    ],
+    "recommended_materials": [
+      "copper",
+      "stone",
+      "ceramic"
+    ],
+    "recommended_elements": [
+      "flowing water",
+      "fish tank",
+      "indoor fountain",
+      "copper water pot"
+    ],
+    "notes": "Water features in North-East attract wealth and positive energy. Never in South zone.",
+    "source_reference": "Vastu water element principles"
+  },
+  {
+    "id": "VR-111",
+    "room_type": "Swimming Pool",
+    "ideal_direction": [
+      "North",
+      "East",
+      "North-East"
+    ],
+    "acceptable_direction": [
+      "North-West"
+    ],
+    "avoid_direction": [
+      "South",
+      "South-West",
+      "Centre"
+    ],
+    "recommended_colors": [
+      "blue",
+      "teal"
+    ],
+    "recommended_materials": [
+      "tile",
+      "stone"
+    ],
+    "recommended_elements": [
+      "clean water",
+      "good drainage",
+      "plants around pool",
+      "no pool in South-West"
+    ],
+    "notes": "Swimming pool in South-West is highly inauspicious and causes financial losses.",
+    "source_reference": "Vastu water body placement"
+  },
+  {
+    "id": "VR-120",
+    "room_type": "Storage Room",
+    "ideal_direction": [
+      "South-West",
+      "West",
+      "South"
+    ],
+    "acceptable_direction": [
+      "North-West"
+    ],
+    "avoid_direction": [
+      "North-East",
+      "North",
+      "East"
+    ],
+    "recommended_colors": [
+      "white",
+      "cream",
+      "grey"
+    ],
+    "recommended_materials": [
+      "wood",
+      "metal",
+      "plastic"
+    ],
+    "recommended_elements": [
+      "organised storage",
+      "no clutter",
+      "good ventilation",
+      "regular decluttering"
+    ],
+    "notes": "Heavy storage belongs in South-West zone. Never store heavy items in North-East.",
+    "source_reference": "Vastu weight distribution"
+  },
+  {
+    "id": "VR-130",
+    "room_type": "Any Room",
+    "ideal_direction": [
+      "North"
+    ],
+    "acceptable_direction": [],
+    "avoid_direction": [],
+    "recommended_colors": [
+      "blue",
+      "green",
+      "teal",
+      "white"
+    ],
+    "recommended_materials": [
+      "glass",
+      "metal",
+      "water features"
+    ],
+    "recommended_elements": [
+      "water element",
+      "crystals",
+      "mirrors",
+      "plants"
+    ],
+    "notes": "North direction governed by Kubera (wealth). Blue and green enhance this energy.",
+    "source_reference": "Vastu directional colour theory"
+  },
+  {
+    "id": "VR-131",
+    "room_type": "Any Room",
+    "ideal_direction": [
+      "East"
+    ],
+    "acceptable_direction": [],
+    "avoid_direction": [],
+    "recommended_colors": [
+      "green",
+      "light yellow",
+      "white"
+    ],
+    "recommended_materials": [
+      "wood",
+      "bamboo",
+      "plants"
+    ],
+    "recommended_elements": [
+      "plants",
+      "morning light",
+      "sunrise artwork",
+      "wood elements"
+    ],
+    "notes": "East direction governed by Indra (prosperity). Green and yellow enhance solar energy.",
+    "source_reference": "Vastu directional colour theory"
+  },
+  {
+    "id": "VR-132",
+    "room_type": "Any Room",
+    "ideal_direction": [
+      "South-East"
+    ],
+    "acceptable_direction": [],
+    "avoid_direction": [],
+    "recommended_colors": [
+      "orange",
+      "red",
+      "pink",
+      "yellow"
+    ],
+    "recommended_materials": [
+      "copper",
+      "brass",
+      "terracotta"
+    ],
+    "recommended_elements": [
+      "fire element",
+      "candles",
+      "warm lighting",
+      "copper accents"
+    ],
+    "notes": "South-East governed by Agni (fire). Warm colours enhance kitchen and fire energy.",
+    "source_reference": "Vastu directional colour theory"
+  },
+  {
+    "id": "VR-133",
+    "room_type": "Any Room",
+    "ideal_direction": [
+      "South"
+    ],
+    "acceptable_direction": [],
+    "avoid_direction": [],
+    "recommended_colors": [
+      "red",
+      "orange",
+      "brown"
+    ],
+    "recommended_materials": [
+      "wood",
+      "stone",
+      "earth"
+    ],
+    "recommended_elements": [
+      "fame symbols",
+      "awards",
+      "red accents",
+      "family photos"
+    ],
+    "notes": "South governed by Yama. Red and orange bring fame and recognition.",
+    "source_reference": "Vastu directional colour theory"
+  },
+  {
+    "id": "VR-134",
+    "room_type": "Any Room",
+    "ideal_direction": [
+      "South-West"
+    ],
+    "acceptable_direction": [],
+    "avoid_direction": [],
+    "recommended_colors": [
+      "brown",
+      "beige",
+      "earthy yellow",
+      "terracotta"
+    ],
+    "recommended_materials": [
+      "heavy stone",
+      "earth",
+      "terracotta",
+      "solid wood"
+    ],
+    "recommended_elements": [
+      "heavy furniture",
+      "earth element",
+      "stability symbols",
+      "couple photos"
+    ],
+    "notes": "South-West governed by Pitru (ancestors). Earth tones and heavy furniture stabilise this zone.",
+    "source_reference": "Vastu directional colour theory"
+  },
+  {
+    "id": "VR-135",
+    "room_type": "Any Room",
+    "ideal_direction": [
+      "West"
+    ],
+    "acceptable_direction": [],
+    "avoid_direction": [],
+    "recommended_colors": [
+      "white",
+      "grey",
+      "silver",
+      "cream"
+    ],
+    "recommended_materials": [
+      "metal",
+      "glass",
+      "marble"
+    ],
+    "recommended_elements": [
+      "metal accents",
+      "circular shapes",
+      "silver frames",
+      "children study area"
+    ],
+    "notes": "West governed by Varuna (water/rain). White and silver tones enhance creativity.",
+    "source_reference": "Vastu directional colour theory"
+  },
+  {
+    "id": "VR-136",
+    "room_type": "Any Room",
+    "ideal_direction": [
+      "North-West"
+    ],
+    "acceptable_direction": [],
+    "avoid_direction": [],
+    "recommended_colors": [
+      "white",
+      "light grey",
+      "cream"
+    ],
+    "recommended_materials": [
+      "metal",
+      "glass",
+      "light wood"
+    ],
+    "recommended_elements": [
+      "movement symbols",
+      "wind chimes",
+      "air plants",
+      "travel photos"
+    ],
+    "notes": "North-West governed by Vayu (air/wind). Light and airy colours enhance movement energy.",
+    "source_reference": "Vastu directional colour theory"
+  },
+  {
+    "id": "VR-137",
+    "room_type": "Any Room",
+    "ideal_direction": [
+      "North-East"
+    ],
+    "acceptable_direction": [],
+    "avoid_direction": [],
+    "recommended_colors": [
+      "white",
+      "cream",
+      "light yellow",
+      "sky blue"
+    ],
+    "recommended_materials": [
+      "marble",
+      "crystal",
+      "glass",
+      "water"
+    ],
+    "recommended_elements": [
+      "crystals",
+      "water feature",
+      "sacred symbols",
+      "Pooja space",
+      "open space"
+    ],
+    "notes": "North-East governed by Ishanya (divine). Always keep open, light and clutter-free.",
+    "source_reference": "Vastu directional colour theory"
+  },
+  {
+    "id": "VR-140",
+    "room_type": "Indoor Plants",
+    "ideal_direction": [
+      "North-East",
+      "East",
+      "North"
+    ],
+    "acceptable_direction": [
+      "West",
+      "South-East"
+    ],
+    "avoid_direction": [
+      "South-West",
+      "bedroom"
+    ],
+    "recommended_colors": [
+      "green",
+      "white flowers"
+    ],
+    "recommended_materials": [
+      "terracotta pot",
+      "ceramic"
+    ],
+    "recommended_elements": [
+      "money plant",
+      "tulsi",
+      "bamboo",
+      "peace lily",
+      "snake plant"
+    ],
+    "notes": "Money plant in North-East or North brings prosperity. Tulsi is sacred and purifies air.",
+    "source_reference": "Vastu plant placement"
+  },
+  {
+    "id": "VR-141",
+    "room_type": "Indoor Plants",
+    "ideal_direction": [
+      "North",
+      "East"
+    ],
+    "acceptable_direction": [
+      "North-East",
+      "South-East"
+    ],
+    "avoid_direction": [
+      "bedroom",
+      "South-West"
+    ],
+    "recommended_colors": [
+      "green",
+      "white"
+    ],
+    "recommended_materials": [
+      "ceramic",
+      "terracotta"
+    ],
+    "recommended_elements": [
+      "bamboo lucky plant",
+      "jade plant",
+      "basil",
+      "spider plant"
+    ],
+    "notes": "Avoid cactus and thorny plants indoors \u2014 they generate negative energy. Bamboo brings luck.",
+    "source_reference": "Vastu flora principles"
+  },
+  {
+    "id": "VR-142",
+    "room_type": "Outdoor Garden",
+    "ideal_direction": [
+      "East",
+      "North-East",
+      "North"
+    ],
+    "acceptable_direction": [
+      "West"
+    ],
+    "avoid_direction": [
+      "South-West"
+    ],
+    "recommended_colors": [
+      "all colours welcome"
+    ],
+    "recommended_materials": [
+      "terracotta",
+      "stone",
+      "wood"
+    ],
+    "recommended_elements": [
+      "tulsi in North-East",
+      "fruit trees in South/West",
+      "flowering plants in East",
+      "no thorny plants at entrance"
+    ],
+    "notes": "Large trees should not be in North or East \u2014 they block positive morning energy.",
+    "source_reference": "Vastu garden principles"
+  },
+  {
+    "id": "VR-150",
+    "room_type": "Mirror Placement",
+    "ideal_direction": [
+      "North",
+      "East"
+    ],
+    "acceptable_direction": [
+      "West"
+    ],
+    "avoid_direction": [
+      "South",
+      "facing bed",
+      "facing toilet"
+    ],
+    "recommended_colors": [
+      "gold frame",
+      "silver frame",
+      "wooden frame"
+    ],
+    "recommended_materials": [
+      "glass",
+      "wood",
+      "metal"
+    ],
+    "recommended_elements": [
+      "clean mirrors",
+      "no broken mirrors",
+      "mirrors double positive energy"
+    ],
+    "notes": "Mirrors on North or East walls attract prosperity. Never place mirror facing bed \u2014 disrupts sleep.",
+    "source_reference": "Vastu mirror principles"
+  },
+  {
+    "id": "VR-151",
+    "room_type": "Mirror Placement",
+    "ideal_direction": [
+      "North"
+    ],
+    "acceptable_direction": [
+      "East"
+    ],
+    "avoid_direction": [
+      "South",
+      "South-West",
+      "facing toilet"
+    ],
+    "recommended_colors": [
+      "brass frame",
+      "gold frame"
+    ],
+    "recommended_materials": [
+      "high-quality glass",
+      "teak frame",
+      "brass frame"
+    ],
+    "recommended_elements": [
+      "clean and dust-free",
+      "no cracks",
+      "doubles whatever faces it"
+    ],
+    "notes": "Broken mirrors must be replaced immediately \u2014 they multiply negative energy.",
+    "source_reference": "Vastu reflective surfaces"
+  },
+  {
+    "id": "VR-160",
+    "room_type": "Bedroom Colours",
+    "ideal_direction": [
+      "South-West"
+    ],
+    "acceptable_direction": [
+      "South",
+      "West"
+    ],
+    "avoid_direction": [],
+    "recommended_colors": [
+      "beige",
+      "cream",
+      "light pink",
+      "lavender",
+      "earth tones"
+    ],
+    "recommended_materials": [
+      "matte paint",
+      "natural pigments"
+    ],
+    "recommended_elements": [
+      "no black walls",
+      "no dark red in bedroom",
+      "pastel tones for calm sleep"
+    ],
+    "notes": "Avoid black or dark grey in bedrooms. Soft pastels and earth tones promote restful sleep.",
+    "source_reference": "Vastu colour therapy for bedrooms"
+  },
+  {
+    "id": "VR-161",
+    "room_type": "Living Room Colours",
+    "ideal_direction": [
+      "North",
+      "East"
+    ],
+    "acceptable_direction": [
+      "North-East"
+    ],
+    "avoid_direction": [],
+    "recommended_colors": [
+      "white",
+      "cream",
+      "yellow",
+      "green",
+      "orange"
+    ],
+    "recommended_materials": [
+      "matte or silk finish paint"
+    ],
+    "recommended_elements": [
+      "accent walls in warm tones",
+      "no black accent walls",
+      "wood panelling"
+    ],
+    "notes": "Yellow and cream living rooms promote joy and family harmony. Green promotes health.",
+    "source_reference": "Vastu colour psychology"
+  },
+  {
+    "id": "VR-162",
+    "room_type": "Kitchen Colours",
+    "ideal_direction": [
+      "South-East"
+    ],
+    "acceptable_direction": [
+      "North-West"
+    ],
+    "avoid_direction": [],
+    "recommended_colors": [
+      "orange",
+      "yellow",
+      "red",
+      "cream",
+      "saffron"
+    ],
+    "recommended_materials": [
+      "semi-gloss paint",
+      "tile"
+    ],
+    "recommended_elements": [
+      "warm tones near stove",
+      "no black in kitchen",
+      "copper accents"
+    ],
+    "notes": "Never paint kitchen black or very dark \u2014 dampens fire energy. Warm colours boost appetite.",
+    "source_reference": "Vastu kitchen colour principles"
+  },
+  {
+    "id": "VR-170",
+    "room_type": "Home Office",
+    "ideal_direction": [
+      "North",
+      "East",
+      "North-East"
+    ],
+    "acceptable_direction": [
+      "West"
+    ],
+    "avoid_direction": [
+      "South",
+      "South-West"
+    ],
+    "recommended_colors": [
+      "blue",
+      "green",
+      "white",
+      "cream"
+    ],
+    "recommended_materials": [
+      "wood",
+      "glass",
+      "metal"
+    ],
+    "recommended_elements": [
+      "desk faces North or East",
+      "no back to door",
+      "Saraswati image",
+      "money plant",
+      "crystal on desk"
+    ],
+    "notes": "Home office in North zone attracts clients and business opportunities (Kubera zone).",
+    "source_reference": "Vastu for business prosperity"
+  },
+  {
+    "id": "VR-171",
+    "room_type": "Home Office",
+    "ideal_direction": [
+      "North"
+    ],
+    "acceptable_direction": [
+      "East",
+      "North-East"
+    ],
+    "avoid_direction": [
+      "South",
+      "South-West",
+      "West"
+    ],
+    "recommended_colors": [
+      "green",
+      "blue",
+      "white"
+    ],
+    "recommended_materials": [
+      "teak",
+      "bamboo",
+      "metal"
+    ],
+    "recommended_elements": [
+      "solid wall behind chair",
+      "no window behind",
+      "Lakshmi or Ganesha on desk",
+      "organised desk"
+    ],
+    "notes": "Always sit with a solid wall behind \u2014 gives support energy. Avoid window directly behind.",
+    "source_reference": "Vastu workspace principles"
+  },
+  {
+    "id": "VR-172",
+    "room_type": "Meditation Room",
+    "ideal_direction": [
+      "North-East"
+    ],
+    "acceptable_direction": [
+      "East",
+      "North"
+    ],
+    "avoid_direction": [
+      "South",
+      "South-West"
+    ],
+    "recommended_colors": [
+      "white",
+      "pale purple",
+      "sky blue",
+      "cream"
+    ],
+    "recommended_materials": [
+      "crystal",
+      "silk",
+      "natural fibre"
+    ],
+    "recommended_elements": [
+      "face East or North while meditating",
+      "crystals",
+      "Himalayan salt lamp",
+      "singing bowl",
+      "no clutter"
+    ],
+    "notes": "North-East is the zone of cosmic energy \u2014 ideal for meditation and spiritual practices.",
+    "source_reference": "Vastu spiritual principles"
+  },
+  {
+    "id": "VR-173",
+    "room_type": "Gym / Exercise Room",
+    "ideal_direction": [
+      "East",
+      "South-East"
+    ],
+    "acceptable_direction": [
+      "North-East"
+    ],
+    "avoid_direction": [
+      "South-West",
+      "North"
+    ],
+    "recommended_colors": [
+      "red",
+      "orange",
+      "yellow",
+      "green"
+    ],
+    "recommended_materials": [
+      "rubber",
+      "wood",
+      "metal"
+    ],
+    "recommended_elements": [
+      "face East while exercising",
+      "good ventilation",
+      "energising colours",
+      "no mirrors in South zone"
+    ],
+    "notes": "East-facing exercise activates solar energy for physical vitality. Avoid gym in South-West.",
+    "source_reference": "Vastu fitness principles"
+  },
+  {
+    "id": "VR-180",
+    "room_type": "Five Elements - Earth",
+    "ideal_direction": [
+      "South-West",
+      "Centre"
+    ],
+    "acceptable_direction": [
+      "South",
+      "West"
+    ],
+    "avoid_direction": [],
+    "recommended_colors": [
+      "yellow",
+      "beige",
+      "brown",
+      "earthy tones"
+    ],
+    "recommended_materials": [
+      "terracotta",
+      "stone",
+      "mud",
+      "heavy wood"
+    ],
+    "recommended_elements": [
+      "heavy furniture in South-West",
+      "crystals",
+      "terracotta pots",
+      "stone flooring"
+    ],
+    "notes": "Earth element (Prithvi) governs stability. Strengthen with heavy items in South-West zone.",
+    "source_reference": "Pancha Bhuta Vastu theory"
+  },
+  {
+    "id": "VR-181",
+    "room_type": "Five Elements - Water",
+    "ideal_direction": [
+      "North-East",
+      "North"
+    ],
+    "acceptable_direction": [
+      "East"
+    ],
+    "avoid_direction": [
+      "South",
+      "South-West"
+    ],
+    "recommended_colors": [
+      "blue",
+      "teal",
+      "black",
+      "white"
+    ],
+    "recommended_materials": [
+      "glass",
+      "mirror",
+      "water",
+      "copper vessels"
+    ],
+    "recommended_elements": [
+      "aquarium",
+      "fountain",
+      "water pot",
+      "mirrors"
+    ],
+    "notes": "Water element (Jal) governs flow and prosperity. Place in North or North-East zones.",
+    "source_reference": "Pancha Bhuta Vastu theory"
+  },
+  {
+    "id": "VR-182",
+    "room_type": "Five Elements - Fire",
+    "ideal_direction": [
+      "South-East",
+      "South"
+    ],
+    "acceptable_direction": [
+      "East"
+    ],
+    "avoid_direction": [
+      "North-East",
+      "North"
+    ],
+    "recommended_colors": [
+      "red",
+      "orange",
+      "yellow",
+      "pink"
+    ],
+    "recommended_materials": [
+      "copper",
+      "brass",
+      "candles",
+      "lamp"
+    ],
+    "recommended_elements": [
+      "diyas",
+      "candles",
+      "copper items",
+      "fire pit",
+      "red accents"
+    ],
+    "notes": "Fire element (Agni) governs transformation. South-East is the ideal fire zone.",
+    "source_reference": "Pancha Bhuta Vastu theory"
+  },
+  {
+    "id": "VR-183",
+    "room_type": "Five Elements - Air",
+    "ideal_direction": [
+      "North-West",
+      "East"
+    ],
+    "acceptable_direction": [
+      "North"
+    ],
+    "avoid_direction": [
+      "South-West"
+    ],
+    "recommended_colors": [
+      "white",
+      "light grey",
+      "sky blue",
+      "cream"
+    ],
+    "recommended_materials": [
+      "light fabrics",
+      "bamboo",
+      "metal"
+    ],
+    "recommended_elements": [
+      "wind chimes",
+      "air plants",
+      "open windows",
+      "fans",
+      "cross ventilation"
+    ],
+    "notes": "Air element (Vayu) governs movement and communication. Ensure good cross-ventilation in North-West.",
+    "source_reference": "Pancha Bhuta Vastu theory"
+  },
+  {
+    "id": "VR-184",
+    "room_type": "Five Elements - Space",
+    "ideal_direction": [
+      "Centre"
+    ],
+    "acceptable_direction": [],
+    "avoid_direction": [],
+    "recommended_colors": [
+      "transparent",
+      "white",
+      "sky blue"
+    ],
+    "recommended_materials": [
+      "open space",
+      "glass",
+      "light"
+    ],
+    "recommended_elements": [
+      "Brahmasthana (centre) must be open",
+      "no heavy pillars in centre",
+      "skylight if possible",
+      "open courtyard"
+    ],
+    "notes": "Space element (Akasha) governs the centre (Brahmasthana). Keep the centre of home open and light.",
+    "source_reference": "Pancha Bhuta Vastu theory"
+  },
+  {
+    "id": "VR-190",
+    "room_type": "Plot / House Shape",
+    "ideal_direction": [],
+    "acceptable_direction": [],
+    "avoid_direction": [],
+    "recommended_colors": [
+      "any"
+    ],
+    "recommended_materials": [
+      "any"
+    ],
+    "recommended_elements": [
+      "square or rectangular plot ideal",
+      "avoid irregular shapes",
+      "no cut corners in North-East"
+    ],
+    "notes": "Square and rectangular plots are most auspicious. Triangular plots create instability.",
+    "source_reference": "Vastu plot selection principles"
+  },
+  {
+    "id": "VR-191",
+    "room_type": "Plot / House Shape",
+    "ideal_direction": [
+      "North",
+      "East"
+    ],
+    "acceptable_direction": [],
+    "avoid_direction": [],
+    "recommended_colors": [
+      "any"
+    ],
+    "recommended_materials": [
+      "any"
+    ],
+    "recommended_elements": [
+      "extended North-East is lucky",
+      "avoid South-West extension",
+      "rectangular with North extension"
+    ],
+    "notes": "A plot extended in the North-East is considered highly auspicious for wealth and spirituality.",
+    "source_reference": "Vastu plot shape analysis"
+  },
+  {
+    "id": "VR-192",
+    "room_type": "Roof / Ceiling",
+    "ideal_direction": [],
+    "acceptable_direction": [],
+    "avoid_direction": [],
+    "recommended_colors": [
+      "white",
+      "cream",
+      "sky blue"
+    ],
+    "recommended_materials": [
+      "wood",
+      "plaster",
+      "concrete"
+    ],
+    "recommended_elements": [
+      "flat or slightly sloped",
+      "higher in South-West",
+      "lower in North-East",
+      "no heavy chandeliers in centre"
+    ],
+    "notes": "Ceiling should be higher in South-West than North-East for proper energy flow.",
+    "source_reference": "Vastu structural principles"
+  },
+  {
+    "id": "VR-200",
+    "room_type": "Health Vastu",
+    "ideal_direction": [
+      "North-East"
+    ],
+    "acceptable_direction": [
+      "East",
+      "North"
+    ],
+    "avoid_direction": [
+      "South-West"
+    ],
+    "recommended_colors": [
+      "green",
+      "blue",
+      "white"
+    ],
+    "recommended_materials": [
+      "copper",
+      "crystal",
+      "plants"
+    ],
+    "recommended_elements": [
+      "tulsi plant",
+      "neem tree in West",
+      "aloe vera",
+      "copper water vessel in North-East"
+    ],
+    "notes": "North-East zone governs health. Keep it clean, open and filled with healing plants.",
+    "source_reference": "Vastu health principles"
+  },
+  {
+    "id": "VR-201",
+    "room_type": "Health Vastu",
+    "ideal_direction": [
+      "East"
+    ],
+    "acceptable_direction": [
+      "North-East",
+      "North"
+    ],
+    "avoid_direction": [
+      "South",
+      "South-West"
+    ],
+    "recommended_colors": [
+      "green",
+      "yellow",
+      "white"
+    ],
+    "recommended_materials": [
+      "copper",
+      "plants",
+      "crystals"
+    ],
+    "recommended_elements": [
+      "morning sun exposure",
+      "east window open",
+      "fresh air",
+      "no clutter in health zone"
+    ],
+    "notes": "East zone governed by health deity. East-facing rooms receive healing morning solar energy.",
+    "source_reference": "Vastu health zone principles"
+  },
+  {
+    "id": "VR-210",
+    "room_type": "Wealth Vastu",
+    "ideal_direction": [
+      "North"
+    ],
+    "acceptable_direction": [
+      "North-East",
+      "East"
+    ],
+    "avoid_direction": [
+      "South",
+      "South-West"
+    ],
+    "recommended_colors": [
+      "green",
+      "blue",
+      "gold",
+      "yellow"
+    ],
+    "recommended_materials": [
+      "copper",
+      "gold",
+      "crystal"
+    ],
+    "recommended_elements": [
+      "Kubera yantra",
+      "safe/locker facing North",
+      "money plant",
+      "aquarium",
+      "Lakshmi idol"
+    ],
+    "notes": "North zone governs wealth (Kubera). Keep locker/safe with door opening towards North.",
+    "source_reference": "Vastu wealth principles"
+  },
+  {
+    "id": "VR-211",
+    "room_type": "Wealth Vastu",
+    "ideal_direction": [
+      "North-East"
+    ],
+    "acceptable_direction": [
+      "North"
+    ],
+    "avoid_direction": [
+      "South-West",
+      "South"
+    ],
+    "recommended_colors": [
+      "gold",
+      "green",
+      "yellow"
+    ],
+    "recommended_materials": [
+      "gold",
+      "copper",
+      "crystals"
+    ],
+    "recommended_elements": [
+      "Lakshmi footprints",
+      "yellow flower",
+      "Dhan Lakshmi image",
+      "open and clutter-free"
+    ],
+    "notes": "Lakshmi (goddess of wealth) enters from North-East. Keep this zone welcoming and clutter-free.",
+    "source_reference": "Vastu prosperity principles"
+  },
+  {
+    "id": "VR-220",
+    "room_type": "Relationship Vastu",
+    "ideal_direction": [
+      "South-West"
+    ],
+    "acceptable_direction": [
+      "West"
+    ],
+    "avoid_direction": [
+      "North-East",
+      "East"
+    ],
+    "recommended_colors": [
+      "pink",
+      "rose",
+      "peach",
+      "cream"
+    ],
+    "recommended_materials": [
+      "rose quartz",
+      "wood",
+      "silk"
+    ],
+    "recommended_elements": [
+      "paired decor",
+      "couple photos in South-West",
+      "rose quartz crystals",
+      "pink flowers",
+      "no single-figure art"
+    ],
+    "notes": "South-West zone governs relationships. Place paired items and couple photos here.",
+    "source_reference": "Vastu relationship principles"
+  },
+  {
+    "id": "VR-221",
+    "room_type": "Relationship Vastu",
+    "ideal_direction": [
+      "South-West"
+    ],
+    "acceptable_direction": [
+      "West",
+      "South"
+    ],
+    "avoid_direction": [
+      "North-East"
+    ],
+    "recommended_colors": [
+      "red",
+      "pink",
+      "orange"
+    ],
+    "recommended_materials": [
+      "silk",
+      "rose quartz",
+      "wood"
+    ],
+    "recommended_elements": [
+      "no cactus in bedroom",
+      "no single bird paintings",
+      "paired candles",
+      "red roses",
+      "mandap motif"
+    ],
+    "notes": "Avoid single figures in artwork in couples bedroom \u2014 use paired or group imagery.",
+    "source_reference": "Vastu harmony principles"
+  },
+  {
+    "id": "VR-230",
+    "room_type": "Lighting",
+    "ideal_direction": [
+      "South-East"
+    ],
+    "acceptable_direction": [
+      "East",
+      "South"
+    ],
+    "avoid_direction": [
+      "North-East",
+      "North"
+    ],
+    "recommended_colors": [
+      "warm white",
+      "amber",
+      "golden"
+    ],
+    "recommended_materials": [
+      "brass lamp",
+      "copper",
+      "clay diya"
+    ],
+    "recommended_elements": [
+      "oil lamps in South-East",
+      "diyas at entrance",
+      "no harsh tube lights",
+      "warm LED bulbs"
+    ],
+    "notes": "South-East is the fire (Agni) zone \u2014 warm lighting here energises the home.",
+    "source_reference": "Vastu lighting principles"
+  },
+  {
+    "id": "VR-231",
+    "room_type": "Lighting",
+    "ideal_direction": [
+      "North-East"
+    ],
+    "acceptable_direction": [
+      "East",
+      "North"
+    ],
+    "avoid_direction": [
+      "South-West",
+      "South"
+    ],
+    "recommended_colors": [
+      "natural daylight",
+      "cool white"
+    ],
+    "recommended_materials": [
+      "glass",
+      "crystal",
+      "natural light"
+    ],
+    "recommended_elements": [
+      "maximum natural light in North-East",
+      "skylight if possible",
+      "no dark corners",
+      "crystal chandeliers"
+    ],
+    "notes": "Crystal chandeliers in the centre attract and distribute positive energy throughout the home.",
+    "source_reference": "Vastu light energy principles"
+  },
+  {
+    "id": "VR-240",
+    "room_type": "Vastu Defect Remedy",
+    "ideal_direction": [],
+    "acceptable_direction": [],
+    "avoid_direction": [],
+    "recommended_colors": [
+      "varies"
+    ],
+    "recommended_materials": [
+      "copper",
+      "crystal",
+      "plants",
+      "mirrors"
+    ],
+    "recommended_elements": [
+      "Vastu pyramid",
+      "sea salt bowls",
+      "camphor",
+      "copper strips",
+      "crystal balls"
+    ],
+    "notes": "Vastu pyramids placed in defective zones absorb negative energy. Use copper pyramids for best results.",
+    "source_reference": "Vastu remedy principles"
+  },
+  {
+    "id": "VR-241",
+    "room_type": "Vastu Defect Remedy",
+    "ideal_direction": [],
+    "acceptable_direction": [],
+    "avoid_direction": [],
+    "recommended_colors": [
+      "white",
+      "gold"
+    ],
+    "recommended_materials": [
+      "sea salt",
+      "camphor",
+      "copper",
+      "neem"
+    ],
+    "recommended_elements": [
+      "sea salt in corners",
+      "camphor burning",
+      "neem leaves",
+      "copper coins buried at entrance"
+    ],
+    "notes": "Sea salt in bowls at corners absorbs negative energy. Replace every 30 days.",
+    "source_reference": "Vastu cleansing remedies"
+  },
+  {
+    "id": "VR-242",
+    "room_type": "Vastu Defect Remedy",
+    "ideal_direction": [],
+    "acceptable_direction": [],
+    "avoid_direction": [],
+    "recommended_colors": [
+      "gold",
+      "brass"
+    ],
+    "recommended_materials": [
+      "brass",
+      "copper",
+      "gold"
+    ],
+    "recommended_elements": [
+      "brass wind chimes",
+      "copper water pot",
+      "gold-coloured door handles",
+      "brass Ganesha"
+    ],
+    "notes": "Brass and copper are highly conductive Vastu materials \u2014 they amplify positive energy flow.",
+    "source_reference": "Vastu metal principles"
+  },
+  {
+    "id": "VR-250",
+    "room_type": "Puja Room",
+    "ideal_direction": [
+      "North-East"
+    ],
+    "acceptable_direction": [
+      "East"
+    ],
+    "avoid_direction": [
+      "South",
+      "bedroom wall",
+      "toilet wall"
+    ],
+    "recommended_colors": [
+      "white",
+      "yellow",
+      "gold",
+      "saffron"
+    ],
+    "recommended_materials": [
+      "marble",
+      "teak",
+      "brass",
+      "sandalwood"
+    ],
+    "recommended_elements": [
+      "Ganesha idol first",
+      "lamp facing East",
+      "fresh flowers daily",
+      "copper kalash",
+      "rangoli at entrance"
+    ],
+    "notes": "Always place Ganesha first in any Puja arrangement as remover of obstacles.",
+    "source_reference": "Hindu Puja room guidelines"
+  },
+  {
+    "id": "VR-251",
+    "room_type": "Puja Room",
+    "ideal_direction": [
+      "North-East"
+    ],
+    "acceptable_direction": [
+      "East",
+      "North"
+    ],
+    "avoid_direction": [
+      "South-West",
+      "bedroom"
+    ],
+    "recommended_colors": [
+      "pure white",
+      "cream",
+      "gold"
+    ],
+    "recommended_materials": [
+      "white marble",
+      "teak",
+      "brass"
+    ],
+    "recommended_elements": [
+      "no storage in Puja room",
+      "separate space only for prayer",
+      "no shoe rack nearby",
+      "dedicated ventilation"
+    ],
+    "notes": "Puja room must be used only for prayer. Never store medicines, groceries or other items here.",
+    "source_reference": "Sacred space Vastu principles"
+  }
+]

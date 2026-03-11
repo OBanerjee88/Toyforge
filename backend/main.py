@@ -81,3 +81,67 @@ async def debug():
             return {"status":"Gemini working!","response":res.json()["candidates"][0]["content"]["parts"][0]["text"]}
         return {"status":"error","code":res.status_code}
     except Exception as e: return {"status":"Exception","error":str(e)}
+
+# New dataset endpoints
+RULES_FILE    = Path(__file__).parent / "vastu_rules.json"
+REMEDIES_FILE = Path(__file__).parent / "vastu_remedies.json"
+PLANS_FILE    = Path(__file__).parent / "floor_plans.json"
+
+@app.get("/vastu-rules")
+def vastu_rules_all():
+    with open(RULES_FILE) as f: return json.load(f)
+
+@app.get("/vastu-rules/{room_type}")
+def vastu_rules_by_room(room_type: str):
+    with open(RULES_FILE) as f: rules = json.load(f)
+    return [r for r in rules if r["room_type"].lower()==room_type.lower()]
+
+@app.get("/vastu-remedies")
+def vastu_remedies_all():
+    with open(REMEDIES_FILE) as f: return json.load(f)
+
+@app.get("/floor-plans")
+def floor_plans_all():
+    try:
+        with open(PLANS_FILE) as f: return json.load(f)
+    except: return []
+
+class PlanRequest(BaseModel):
+    entrance_direction: str
+    home_type: str
+    num_rooms: int = 3
+    special_requirements: str = ""
+
+@app.post("/generate-plan")
+async def generate_plan(req: PlanRequest):
+    prompt = f"""You are a Vastu Shastra home planning expert. Generate a complete Vastu-compliant room placement plan and return ONLY valid JSON, no markdown.
+
+Home details:
+- Entrance direction: {req.entrance_direction}
+- Home type: {req.home_type}
+- Number of rooms: {req.num_rooms}
+- Special requirements: {req.special_requirements or 'None'}
+
+Return exactly this JSON structure:
+{{
+  "home_type": "{req.home_type}",
+  "entrance_direction": "{req.entrance_direction}",
+  "vastu_score": 88,
+  "rooms": {{
+    "living_room": "North-East",
+    "kitchen": "South-East",
+    "master_bedroom": "South-West",
+    "bedroom_2": "West",
+    "toilet": "North-West",
+    "pooja_room": "North-East corner",
+    "study": "North"
+  }},
+  "key_principles": ["Principle 1", "Principle 2", "Principle 3"],
+  "warnings": ["Warning if any"],
+  "remedies": ["Remedy if needed"],
+  "summary": "2-sentence summary of this layout"
+}}"""
+    text = await call_gemini(prompt)
+    text = __import__('re').sub(r"```json|```","",text).strip()
+    try: return json.loads(text)
+    except: return {"error":"Could not generate plan","raw":text}
