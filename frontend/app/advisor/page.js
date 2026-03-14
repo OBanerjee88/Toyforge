@@ -1,5 +1,7 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
+import { supabase } from '../../lib/supabase';
+
 const API = process.env.NEXT_PUBLIC_API_URL || 'https://toyforge.onrender.com';
 const SUGGESTIONS = ["Is my North-West kitchen okay?","Best colour for my bedroom?","My toilet is in North-East, any remedy?","Which direction should I sleep?","How to improve Vastu for study room?","Good plants for my living room?"];
 
@@ -7,8 +9,16 @@ export default function Advisor(){
   const [msgs,setMsgs]=useState([{role:'ai',content:'Namaste! 🙏 I am VastuAI, your personal Vastu Shastra expert. Tell me about your home — its facing direction, room positions, or any Vastu concerns you have. I\'m here to guide you towards harmony and prosperity. 🪔'}]);
   const [input,setInput]=useState('');
   const [loading,setLoading]=useState(false);
+  const [userId,setUserId]=useState(null);
   const endRef=useRef(null);
+
   useEffect(()=>endRef.current?.scrollIntoView({behavior:'smooth'}),[msgs]);
+
+  useEffect(()=>{
+    supabase.auth.getSession().then(({data:{session}})=>{
+      if(session) setUserId(session.user.id);
+    });
+  },[]);
 
   const send=async(msg)=>{
     const text=msg||input.trim();
@@ -19,7 +29,16 @@ export default function Advisor(){
     setLoading(true);
     try{
       const history=newMsgs.slice(-8).map(m=>({role:m.role==='ai'?'assistant':'user',content:m.content}));
-      const r=await fetch(`${API}/vastu-chat`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:text,history:history.slice(0,-1)})});
+      const r=await fetch(`${API}/vastu-chat`,{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({message:text,history:history.slice(0,-1),user_id:userId})
+      });
+      if(r.status===429){
+        setMsgs(m=>[...m,{role:'ai',content:'⚠️ You\'ve used all 10 free AI queries for today. Upgrade to Pro for unlimited access! Visit /pricing to upgrade. 🙏'}]);
+        setLoading(false);
+        return;
+      }
       const d=await r.json();
       setMsgs(m=>[...m,{role:'ai',content:d.reply}]);
     }catch{
@@ -58,18 +77,38 @@ export default function Advisor(){
             <div style={{display:'flex',alignItems:'center',gap:10}}>
               <div style={{width:32,height:32,borderRadius:'50%',background:'linear-gradient(135deg,#C9A84C,#8B6914)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:16}}>🪔</div>
               <div style={{background:'#FDF6EC',padding:'12px 16px',borderRadius:'18px 18px 18px 4px',border:'1px solid rgba(201,168,76,0.2)'}}>
-                <div style={{display:'flex',gap:4}}>{[0,1,2].map(i=><div key={i} style={{width:8,height:8,borderRadius:'50%',background:'#C9A84C',animation:`pulse 1.2s ease-in-out ${i*0.2}s infinite`}}/>)}</div>
+                <span>Consulting Vastu wisdom</span>
+                <span style={{animation:'pulse 1s infinite'}}>...</span>
               </div>
             </div>
           )}
           <div ref={endRef}/>
         </div>
-        <div style={{padding:'1rem',borderTop:'1px solid rgba(201,168,76,0.2)',display:'flex',gap:10}}>
-          <input value={input} onChange={e=>setInput(e.target.value)} onKeyDown={e=>e.key==='Enter'&&send()} placeholder="Ask about your home's Vastu..." style={{flex:1,padding:'10px 16px',borderRadius:25,border:'1px solid rgba(201,168,76,0.3)',background:'#FDF6EC',fontSize:14,outline:'none',color:'#4A2C1A'}}/>
-          <button onClick={()=>send()} disabled={!input.trim()||loading} style={{background:'linear-gradient(135deg,#C9A84C,#8B6914)',color:'#1a0a00',border:'none',borderRadius:25,padding:'10px 20px',fontWeight:700,fontSize:14,cursor:'pointer',opacity:!input.trim()||loading?0.5:1}}>Send 🙏</button>
+
+        {/* Input */}
+        <div style={{borderTop:'1px solid rgba(201,168,76,0.2)',padding:'1rem',display:'flex',gap:10}}>
+          <input
+            value={input}
+            onChange={e=>setInput(e.target.value)}
+            onKeyDown={e=>e.key==='Enter'&&!e.shiftKey&&send()}
+            placeholder="Ask about your home's Vastu..."
+            style={{flex:1,padding:'12px 16px',borderRadius:12,border:'1px solid rgba(201,168,76,0.3)',fontSize:14,outline:'none',fontFamily:'inherit'}}
+          />
+          <button
+            onClick={()=>send()}
+            disabled={loading||!input.trim()}
+            style={{background:'linear-gradient(135deg,#C9A84C,#8B6914)',color:'white',border:'none',borderRadius:12,padding:'12px 20px',fontSize:14,fontWeight:600,cursor:loading?'not-allowed':'pointer',opacity:loading||!input.trim()?0.6:1}}
+          >
+            {loading?'...':'Send'}
+          </button>
         </div>
       </div>
-      <style>{`@keyframes pulse{0%,100%{opacity:0.3;transform:scale(0.8)}50%{opacity:1;transform:scale(1)}}`}</style>
+
+      {!userId&&(
+        <p style={{textAlign:'center',marginTop:16,fontSize:13,color:'#8b5e3c'}}>
+          <a href="/auth/login" style={{textDecoration:'underline',fontWeight:'bold'}}>Login</a> to track your daily queries and unlock Pro features.
+        </p>
+      )}
     </main>
   );
 }
