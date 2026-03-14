@@ -6,6 +6,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import httpx
 
+from query_gate import check_and_increment_query
+
 app = FastAPI(title="VastuForge API", version="2.0.0")
 ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "*").split(",")
 app.add_middleware(CORSMiddleware, allow_origins=ALLOWED_ORIGINS,
@@ -49,7 +51,10 @@ def design_detail(design_id: str):
     return design
 
 @app.post("/vastu-chat")
-async def vastu_chat(req: ChatRequest):
+async def vastu_chat(req: ChatRequest, user_id: str = None):
+    gate = check_and_increment_query(user_id)
+    if not gate["allowed"]:
+        raise HTTPException(status_code=429, detail={"error": "daily_limit_reached", "message": "You've used all 10 free AI queries for today. Upgrade to Pro for unlimited access.", "limit": 10})
     history_text = "".join([f"{h['role'].upper()}: {h['content']}\n" for h in req.history[-6:]])
     prompt = f"""You are VastuAI, a warm expert Vastu Shastra consultant for Indian homes.
 You know Vastu principles, directions, five elements, room placement, colours, remedies and cures.
@@ -61,7 +66,10 @@ VASTUAI:"""
     return {"reply": response.strip()}
 
 @app.post("/vastu-check")
-async def vastu_check(req: CheckRequest):
+async def vastu_check(req: CheckRequest, user_id: str = None):
+    gate = check_and_increment_query(user_id)
+    if not gate["allowed"]:
+        raise HTTPException(status_code=429, detail={"error": "daily_limit_reached", "message": "You've used all 10 free AI queries for today. Upgrade to Pro for unlimited access.", "limit": 10})
     prompt = f"""You are a Vastu compliance expert. Analyze this home and return ONLY valid JSON, no markdown.
 Home: {req.description}
 Return exactly: {{"overall_score":75,"summary":"Brief 2-sentence assessment","rooms":[{{"room":"Kitchen","direction":"South-East","score":95,"status":"Excellent","tip":"Brief tip"}}],"top_issues":["Issue 1"],"remedies":["Remedy 1","Remedy 2","Remedy 3"],"positive_aspects":["Positive 1"]}}"""
