@@ -121,7 +121,10 @@ class PlanRequest(BaseModel):
     special_requirements: str = ""
 
 @app.post("/generate-plan")
-async def generate_plan(req: PlanRequest):
+async def generate_plan(req: PlanRequest, user_id: str = None):
+    gate = check_and_increment_query(user_id)
+    if not gate["allowed"]:
+        raise HTTPException(status_code=429, detail={"error": "daily_limit_reached", "message": "You've used all 10 free AI queries for today. Upgrade to Pro for unlimited access.", "limit": 10})
     prompt = f"""You are a Vastu expert. Return ONLY raw JSON, no markdown, no explanation.
 Home: {req.home_type}, Entrance: {req.entrance_direction}, Rooms: {req.num_rooms}, Notes: {req.special_requirements or 'None'}
 Return this exact JSON:
