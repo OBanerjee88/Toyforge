@@ -1,73 +1,61 @@
 import os
+import httpx
 from datetime import date
-from supabase import create_client
 
-SUPABASE_URL = os.environ.get("SUPABASE_URL")
-SUPABASE_SECRET_KEY = os.environ.get("SUPABASE_SECRET_KEY")
-
+SUPABASE_URL = os.environ.get("SUPABASE_URL", "")
+SUPABASE_SECRET_KEY = os.environ.get("SUPABASE_SECRET_KEY", "")
 FREE_DAILY_LIMIT = 10
 
-def get_supabase_admin():
-    return create_client(SUPABASE_URL, SUPABASE_SECRET_KEY)
+def get_headers():
+    return {
+        "apikey": SUPABASE_SECRET_KEY,
+        "Authorization": f"Bearer {SUPABASE_SECRET_KEY}",
+        "Content-Type": "application/json",
+        "Prefer": "return=representation"
+    }
 
 def check_and_increment_query(user_id: str) -> dict:
-    """
-    Returns {"allowed": True} if user can make a query.
-    Returns {"allowed": False, "reason": "..."} if blocked.
-    Automatically resets count if it's a new day.
-    """
-    if not user_id:
-        # Unauthenticated user — allow but don't track
+    if not user_id or not SUPABASE_URL or not SUPABASE_SECRET_KEY:
         return {"allowed": True}
 
-    supabase = get_supabase_admin()
     today = date.today().isoformat()
+    headers = get_headers()
 
-    # Fetch current profile
-    result = supabase.table("profiles").select(
-        "plan, daily_queries_used, last_query_date"
-    ).eq("id", user_id).single().execute()
+    try:
+        url = f"{SUPABASE_URL}/rest/v1/profiles?id=eq.{user_id}&select=plan,daily_queries_used,last_query_date"
+        with httpx.Client(timeout=10) as client:
+            res = client.get(url, headers=headers)
 
-    if not result.data:
-        return {"allowed": True}  # No profile yet, allow
+        if res.status_code != 200 or not res.json():
+            return {"allowed": True}
 
-    profile = result.data
-    plan = profile.get("plan", "free")
-    queries_used = profile.get("daily_queries_used", 0)
-    last_query_date = profile.get("last_query_date", today)
+        profile = res.json()[0]
+        plan = profile.get("plan", "free")
+        queries_used = profile.get("daily_queries_used", 0)
+        last_query_date = profile.get("last_query_date", today)
 
-    # Pro users — unlimited
-    if plan == "pro":
-        # Still increment for analytics
-        supabase.table("profiles").update({
-            "daily_queries_used": queries_used + 1,
-            "last_query_date": today
-        }).eq("id", user_id).execute()
-        return {"allowed": True, "plan": "pro"}
+        if last_query_date != today:
+            queries_used = 0
 
-    # Reset count if it's a new day
-    if last_query_date != today:
-        queries_used = 0
+        if plan == "pro":
+            _increment(user_id, queries_used, today, headers)
+            return {"allowed": True, "plan": "pro"}
 
-    # Check limit
-    if queries_used >= FREE_DAILY_LIMIT:
-        return {
-            "allowed": False,
-            "reason": "daily_limit_reached",
-            "queries_used": queries_used,
-            "limit": FREE_DAILY_LIMIT,
-            "plan": "free"
-        }
+        if queries_used >= FREE_DAILY_LIMIT:
+            return {"allowed": False, "reason": "daily_limit_reached", "queries_used": queries_used, "limit": FREE_DAILY_LIMIT, "plan": "free"}
 
-    # Increment count
-    supabase.table("profiles").update({
-        "daily_queries_used": queries_used + 1,
-        "last_query_date": today
-    }).eq("id", user_id).execute()
+        _increment(user_id, queries_used, today, headers)
+        return {"allowed": True, "queries_used": queries_used + 1, "limit": FREE_DAILY_LIMIT, "plan": "free"}
 
-    return {
-        "allowed": True,
-        "queries_used": queries_used + 1,
-        "limit": FREE_DAILY_LIMIT,
-        "plan": "free"
-    }
+    except Exception as e:
+        print(f"Query gate error: {e}")
+        return {"allowed": True}
+
+def _increment(user_id: str, current_count: int, today: str, headers: dict):
+    url = f"{SUPABASE_URL}/rest/v1/profiles?id=eq.{user_id}"
+    data = {"daily_queries_used": current_count + 1, "last_query_date": today}
+    try:
+        with httpx.Client(timeout=10) as client:
+            client.patch(url, headers=headers, json=data)
+    except Exception as e:
+        print(f"Increment error: {e}")
