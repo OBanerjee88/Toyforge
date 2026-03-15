@@ -21,10 +21,11 @@ LIBRARY_FILE   = Path(__file__).parent / "vastu_library.json"
 class ChatRequest(BaseModel):
     message: str
     history: list = []
+    user_id: str = None
 
 class CheckRequest(BaseModel):
     description: str
-
+    user_id: str = None
 async def call_gemini(prompt: str) -> str:
     if not GEMINI_API_KEY:
         raise HTTPException(status_code=500, detail="GEMINI_API_KEY not set")
@@ -51,8 +52,8 @@ def design_detail(design_id: str):
     return design
 
 @app.post("/vastu-chat")
-async def vastu_chat(req: ChatRequest, user_id: str = None):
-    gate = check_and_increment_query(user_id)
+async def vastu_chat(req: ChatRequest):
+    gate = check_and_increment_query(req.user_id)
     if not gate["allowed"]:
         raise HTTPException(status_code=429, detail={"error": "daily_limit_reached", "message": "You've used all 10 free AI queries for today. Upgrade to Pro for unlimited access.", "limit": 10})
     history_text = "".join([f"{h['role'].upper()}: {h['content']}\n" for h in req.history[-6:]])
@@ -66,8 +67,8 @@ VASTUAI:"""
     return {"reply": response.strip()}
 
 @app.post("/vastu-check")
-async def vastu_check(req: CheckRequest, user_id: str = None):
-    gate = check_and_increment_query(user_id)
+async def vastu_check(req: CheckRequest):
+    gate = check_and_increment_query(req.user_id)
     if not gate["allowed"]:
         raise HTTPException(status_code=429, detail={"error": "daily_limit_reached", "message": "You've used all 10 free AI queries for today. Upgrade to Pro for unlimited access.", "limit": 10})
     prompt = f"""You are a Vastu compliance expert. Analyze this home and return ONLY valid JSON, no markdown.
@@ -119,10 +120,11 @@ class PlanRequest(BaseModel):
     home_type: str
     num_rooms: int = 3
     special_requirements: str = ""
+    user_id: str = None
 
 @app.post("/generate-plan")
-async def generate_plan(req: PlanRequest, user_id: str = None):
-    gate = check_and_increment_query(user_id)
+async def generate_plan(req: PlanRequest):
+    gate = check_and_increment_query(req.user_id)
     if not gate["allowed"]:
         raise HTTPException(status_code=429, detail={"error": "daily_limit_reached", "message": "You've used all 10 free AI queries for today. Upgrade to Pro for unlimited access.", "limit": 10})
     prompt = f"""You are a Vastu expert. Return ONLY raw JSON, no markdown, no explanation.
