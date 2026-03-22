@@ -5,6 +5,8 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import httpx
+import hmac
+import hashlib
 
 from query_gate import check_and_increment_query
 
@@ -122,6 +124,16 @@ class PlanRequest(BaseModel):
     special_requirements: str = ""
     user_id: str = None
 
+class OrderRequest(BaseModel):
+    amount: int
+    user_id: str
+
+class VerifyRequest(BaseModel):
+    razorpay_order_id: str
+    razorpay_payment_id: str
+    razorpay_signature: str
+    user_id: str
+
 @app.post("/generate-plan")
 async def generate_plan(req: PlanRequest):
     gate = check_and_increment_query(req.user_id)
@@ -144,3 +156,70 @@ Return this exact JSON:
         rooms = {"living_room":"North-East","kitchen":"South-East","master_bedroom":"South-West","bedroom_2":"West","toilet":"North-West","pooja_room":"North-East corner"}
         score = 95 if req.entrance_direction in ["North","East","North-East"] else 82 if req.entrance_direction in ["West","South-East","North-West"] else 75
         return {"home_type":req.home_type,"entrance_direction":req.entrance_direction,"vastu_score":score,"rooms":rooms,"key_principles":[f"{req.entrance_direction} entrance — ensure bright lighting and Ganesha above door","Kitchen in South-East (Agni zone) is ideal","Master bedroom in South-West for stability and grounding","Keep North-East corner open and clutter-free"],"warnings":[f"{req.entrance_direction} entrance requires remedies — add Ganesha and bright lights"] if req.entrance_direction in ["South","South-West"] else [],"remedies":["Place Vastu pyramid in defective zones","Sea salt bowls in all corners monthly","Copper vessel in North-East"],"summary":f"Vastu-compliant layout for your {req.home_type} with {req.entrance_direction}-facing entrance. Key rooms placed in ideal directions for harmony and prosperity."}
+
+@app.post("/create-order")
+async def create_order(req: OrderRequest):
+    try:
+        url = "https://api.razorpay.com/v1/orders"
+        auth = (RAZORPAY_KEY_ID, RAZORPAY_SECRET)
+        data = {
+            "amount": req.amount,
+            "currency": "INR",
+            "receipt": f"vf_{req.user_id[:8]}",
+            "notes": {"user_id": req.user_id, "plan": "pro"}
+        }
+        async with httpx.AsyncClient(timeout=15) as client:
+            res = await client.post(url, auth=auth, json=data)
+        if res.status_code != 200:
+            raise HTTPException(status_code=500, detail="Order creation failed")
+        order = res.json()
+        return {"id": order["id"], "amount": order["amount"], "currency": order["currency"]}
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/verify-payment")
+async def verify_payment(req: VerifyRequest):
+    try:
+        headers = {
+            "apikey": SUPABASE_SECRET_KEY,
+            "Authorization": f"Bearer {SUPABASE_SECRET_KEY}",
+            "Content-Type": "application/json",
+            "Prefer": "return=representation"
+        }
+        # IDEMPOTENCY CHECK
+        check_url = f"{SUPABASE_URL}/rest/v1/payment_logs?payment_id=eq.{req.razorpay_payment_id}&select=id"
+        with httpx.Client(timeout=10) as client:
+            check_res = client.get(check_url, headers=headers)
+        if check_res.status_code == 200 and check_res.json():
+            return {"success": True, "message": "Already processed"}
+        # VERIFY SIGNATURE
+        body = f"{req.razorpay_order_id}|{req.razorpay_payment_id}"
+        expected = hmac.new(
+            RAZORPAY_SECRET.encode(),
+            body.encode(),
+            hashlib.sha256
+        ).hexdigest()
+        if expected != req.razorpay_signature:
+            raise HTTPException(status_code=400, detail="Invalid payment signature")
+        # LOG PAYMENT
+        log_url = f"{SUPABASE_URL}/rest/v1/payment_logs"
+        log_data = {
+            "payment_id": req.razorpay_payment_id,
+            "order_id": req.razorpay_order_id,
+            "user_id":str(req.user_id),
+            "amount": 19900,
+            "status": "success"
+        }
+        with httpx.Client(timeout=10) as client:
+            client.post(log_url, headers=headers, json=log_data)
+        # UPGRADE USER TO PRO
+        update_url = f"{SUPABASE_URL}/rest/v1/profiles?id=eq.{req.user_id}"
+        with httpx.Client(timeout=10) as client:
+            client.patch(update_url, headers=headers, json={"plan": "pro"})
+        return {"success": True, "message": "Payment verified, upgraded to Pro"}
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))

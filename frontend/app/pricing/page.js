@@ -1,109 +1,135 @@
 'use client';
-import Link from 'next/link';
-
-const PLANS = [
-  {
-    name: 'Free',
-    price: '₹0',
-    period: 'forever',
-    color: '#6B7280',
-    bg: '#F9FAFB',
-    features: [
-      '3 AI queries per day',
-      'Browse 70 design library',
-      'View 15 floor plans',
-      'Basic Vastu checker',
-      'Community support',
-    ],
-    missing: ['Save & download plans', 'PDF Vastu reports', 'Unlimited AI queries', 'Custom planning sessions'],
-    cta: 'Get Started Free',
-    href: '/auth',
-    highlight: false,
-  },
-  {
-    name: 'Pro',
-    price: '₹299',
-    period: 'per month',
-    color: '#C9A84C',
-    bg: 'linear-gradient(135deg,#1a0a00,#3d1f00)',
-    features: [
-      'Unlimited AI Advisor queries',
-      'Unlimited Vastu Checker',
-      'Unlimited Home Planning',
-      'Save & download floor plans',
-      'Personalised Vastu PDF reports',
-      'Ad-free experience',
-      'Priority email support',
-    ],
-    missing: [],
-    cta: 'Start Pro — ₹299/month',
-    href: '/auth',
-    highlight: true,
-  },
-  {
-    name: 'Expert',
-    price: '₹699',
-    period: 'per month',
-    color: '#8B5CF6',
-    bg: '#FAF5FF',
-    features: [
-      'Everything in Pro',
-      '2 custom room planning sessions/month',
-      'Dedicated Vastu consultant',
-      'Priority response (< 2 hours)',
-      'Home visit consultation (virtual)',
-      'Detailed home audit report',
-    ],
-    missing: [],
-    cta: 'Start Expert — ₹699/month',
-    href: '/auth',
-    highlight: false,
-  },
-];
+import { useState, useEffect } from 'react';
+import { supabase } from '../../lib/supabase';
 
 export default function Pricing() {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session) setUser(session.user);
+    });
+  }, []);
+
+  const loadRazorpay = () => {
+    return new Promise((resolve) => {
+      const script = document.createElement('script');
+      script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+      script.onload = () => resolve(true);
+      script.onerror = () => resolve(false);
+      document.body.appendChild(script);
+    });
+  };
+
+  const handleUpgrade = async () => {
+    if (!user) { window.location.href = '/auth/login'; return; }
+    setLoading(true);
+    try {
+      const loaded = await loadRazorpay();
+      if (!loaded) { alert('Failed to load payment gateway. Please try again.'); setLoading(false); return; }
+      const API = process.env.NEXT_PUBLIC_API_URL || 'https://toyforge.onrender.com';
+      const res = await fetch(`${API}/create-order`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ amount: 19900, user_id: user.id })
+      });
+      const order = await res.json();
+      if (!order.id) { alert('Could not create payment order. Please try again.'); setLoading(false); return; }
+      const options = {
+        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY,
+        amount: order.amount,
+        currency: 'INR',
+        name: 'VastuForge',
+        description: 'Pro Plan — ₹199/month',
+        order_id: order.id,
+        prefill: { email: user.email, name: user.user_metadata?.full_name || '' },
+        theme: { color: '#C9A84C' },
+        handler: async (response) => {
+          const verifyRes = await fetch(`${API}/verify-payment`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature: response.razorpay_signature,
+              user_id: user.id
+            })
+          });
+          const result = await verifyRes.json();
+          if (result.success) { window.location.href = '/dashboard?upgraded=true'; }
+          else { alert('Payment verification failed. Please contact support.'); }
+        },
+        modal: { ondismiss: () => setLoading(false) }
+      };
+      const rzp = new window.Razorpay(options);
+      rzp.open();
+    } catch (err) {
+      console.error('Payment error:', err);
+      alert('Something went wrong. Please try again.');
+      setLoading(false);
+    }
+  };
+
+  const freeFeatures = ['10 AI queries per day','Browse 70+ Vastu designs','Browse 15 floor plans','1 design alternative','Vastu compliance checker','Plan My Home AI','Ad-supported'];
+  const proFeatures = ['Unlimited AI queries','Browse 70+ Vastu designs','Browse 15 floor plans','4 design alternatives','Vastu compliance checker','Plan My Home AI','PDF Vastu reports','Save unlimited plans','Ad-free experience','Priority support'];
+
   return (
-    <main style={{ maxWidth: 1100, margin: '0 auto', padding: '3rem 2rem' }}>
+    <main style={{ maxWidth: 900, margin: '0 auto', padding: '3rem 1.5rem', fontFamily: 'Georgia, serif' }}>
       <div style={{ textAlign: 'center', marginBottom: 48 }}>
-        <div style={{ color: '#C9A84C', fontSize: 12, letterSpacing: 4, textTransform: 'uppercase', marginBottom: 8 }}>Simple Pricing</div>
-        <h1 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 'clamp(32px,5vw,52px)', fontWeight: 700, color: '#2C1810', margin: '0 0 12px' }}>Choose Your Plan</h1>
-        <p style={{ color: '#6B4C3B', fontSize: 16, maxWidth: 500, margin: '0 auto' }}>Start free, upgrade when you need more. Cancel anytime.</p>
+        <h1 style={{ fontSize: 'clamp(28px,4vw,44px)', fontWeight: 700, color: '#2C1810', marginBottom: 12 }}>Simple, Transparent Pricing</h1>
+        <p style={{ color: '#6B4C3B', fontSize: 16 }}>Start free. Upgrade when you need more.</p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20, alignItems: 'start' }}>
-        {PLANS.map(plan => (
-          <div key={plan.name} style={{ background: plan.highlight ? plan.bg : 'white', borderRadius: 20, padding: '2rem', border: plan.highlight ? 'none' : '1px solid rgba(201,168,76,0.2)', boxShadow: plan.highlight ? '0 20px 60px rgba(44,24,16,0.3)' : '0 4px 20px rgba(44,24,16,0.06)', position: 'relative', transform: plan.highlight ? 'scale(1.03)' : 'none' }}>
-            {plan.highlight && <div style={{ position: 'absolute', top: -12, left: '50%', transform: 'translateX(-50%)', background: 'linear-gradient(135deg,#C9A84C,#8B6914)', color: '#1a0a00', padding: '4px 16px', borderRadius: 20, fontSize: 11, fontWeight: 700, whiteSpace: 'nowrap' }}>⭐ MOST POPULAR</div>}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, marginBottom: 48 }}>
+        {/* Free Plan */}
+        <div style={{ background: 'white', borderRadius: 20, padding: 32, border: '1px solid #e8d5b0', boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
+          <h2 style={{ fontSize: 22, fontWeight: 700, color: '#2C1810', marginBottom: 4 }}>Free</h2>
+          <div style={{ fontSize: 36, fontWeight: 700, color: '#2C1810' }}>₹0</div>
+          <div style={{ color: '#8b5e3c', fontSize: 14, marginBottom: 24 }}>forever</div>
+          <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px', display: 'flex', flexDirection: 'column', gap: 10 }}>
+            {freeFeatures.map((f, i) => (
+              <li key={i} style={{ fontSize: 14, color: '#4A2C1A', display: 'flex', alignItems: 'center', gap: 8 }}>
+                <span style={{ color: '#C9A84C', fontWeight: 'bold' }}>✓</span> {f}
+              </li>
+            ))}
+          </ul>
+          <div style={{ background: '#f5f0e8', color: '#8b5e3c', textAlign: 'center', padding: 12, borderRadius: 12, fontSize: 14, fontWeight: 600 }}>Current Plan</div>
+        </div>
 
-            <div style={{ color: plan.highlight ? '#D4AF6A' : plan.color, fontSize: 12, textTransform: 'uppercase', letterSpacing: 2, marginBottom: 8 }}>{plan.name}</div>
-            <div style={{ display: 'flex', alignItems: 'baseline', gap: 4, marginBottom: 4 }}>
-              <span style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 40, fontWeight: 700, color: plan.highlight ? '#F5D78E' : '#2C1810' }}>{plan.price}</span>
-              <span style={{ color: plan.highlight ? '#D4AF6A' : '#8B6914', fontSize: 13 }}>/{plan.period}</span>
-            </div>
-            <div style={{ height: 1, background: plan.highlight ? 'rgba(201,168,76,0.3)' : '#F3F4F6', margin: '16px 0' }} />
+        {/* Pro Plan */}
+        <div style={{ background: 'linear-gradient(135deg, #2C1810, #4A2C1A)', borderRadius: 20, padding: 32, border: '2px solid #C9A84C', boxShadow: '0 8px 32px rgba(44,24,16,0.2)', position: 'relative' }}>
+          <div style={{ position: 'absolute', top: 16, right: 16, background: '#C9A84C', color: '#2C1810', fontSize: 11, fontWeight: 700, padding: '4px 10px', borderRadius: 20 }}>POPULAR</div>
+          <h2 style={{ fontSize: 22, fontWeight: 700, color: '#FDF6EC', marginBottom: 4 }}>Pro</h2>
+          <div style={{ fontSize: 36, fontWeight: 700, color: '#C9A84C' }}>₹199</div>
+          <div style={{ color: '#d4a96a', fontSize: 14, marginBottom: 24 }}>per month</div>
+          <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px', display: 'flex', flexDirection: 'column', gap: 10 }}>
+            {proFeatures.map((f, i) => (
+              <li key={i} style={{ fontSize: 14, color: '#FDF6EC', display: 'flex', alignItems: 'center', gap: 8 }}>
+                <span style={{ color: '#C9A84C', fontWeight: 'bold' }}>✓</span> {f}
+              </li>
+            ))}
+          </ul>
+          <button onClick={handleUpgrade} disabled={loading} style={{ width: '100%', background: '#C9A84C', color: '#2C1810', border: 'none', borderRadius: 12, padding: 14, fontSize: 16, fontWeight: 700, cursor: loading ? 'not-allowed' : 'pointer', opacity: loading ? 0.7 : 1 }}>
+            {loading ? 'Processing...' : 'Upgrade to Pro ✨'}
+          </button>
+        </div>
+      </div>
 
-            <div style={{ marginBottom: 20 }}>
-              {plan.features.map(f => (
-                <div key={f} style={{ display: 'flex', gap: 8, padding: '5px 0', color: plan.highlight ? '#D4AF6A' : '#4A2C1A', fontSize: 13 }}>
-                  <span style={{ color: plan.highlight ? '#C9A84C' : '#228B22' }}>✓</span>{f}
-                </div>
-              ))}
-              {plan.missing.map(f => (
-                <div key={f} style={{ display: 'flex', gap: 8, padding: '5px 0', color: '#9CA3AF', fontSize: 13 }}>
-                  <span>✗</span>{f}
-                </div>
-              ))}
-            </div>
-
-            <Link href={plan.href} style={{ display: 'block', textAlign: 'center', background: plan.highlight ? 'linear-gradient(135deg,#C9A84C,#8B6914)' : 'transparent', color: plan.highlight ? '#1a0a00' : plan.color, border: plan.highlight ? 'none' : `2px solid ${plan.color}`, padding: '12px', borderRadius: 25, fontWeight: 700, fontSize: 14, textDecoration: 'none' }}>
-              {plan.cta}
-            </Link>
+      {/* FAQ */}
+      <div style={{ background: 'white', borderRadius: 20, padding: 32, border: '1px solid #e8d5b0' }}>
+        <h3 style={{ color: '#2C1810', marginBottom: 20, fontSize: 18 }}>Frequently Asked Questions</h3>
+        {[
+          { q: 'Can I cancel anytime?', a: 'Yes — cancel anytime from your dashboard. No questions asked.' },
+          { q: 'What payment methods are accepted?', a: 'UPI, credit/debit cards, net banking, and all major wallets via Razorpay.' },
+          { q: 'Is my payment secure?', a: 'Yes — all payments are processed by Razorpay, a PCI-DSS compliant payment gateway.' },
+          { q: 'Will I get a receipt?', a: 'Yes — a payment receipt is sent to your registered email automatically.' },
+        ].map((item, i) => (
+          <div key={i} style={{ marginBottom: 16, paddingBottom: 16, borderBottom: i < 3 ? '1px solid #f0e4d0' : 'none' }}>
+            <div style={{ fontWeight: 600, color: '#2C1810', marginBottom: 4, fontSize: 14 }}>Q: {item.q}</div>
+            <div style={{ color: '#6B4C3B', fontSize: 14 }}>{item.a}</div>
           </div>
         ))}
-      </div>
-
-      <div style={{ textAlign: 'center', marginTop: 40, color: '#8B6914', fontSize: 13 }}>
-        🔒 Secure payments via Razorpay &nbsp;·&nbsp; Cancel anytime &nbsp;·&nbsp; 7-day money-back guarantee
       </div>
     </main>
   );
