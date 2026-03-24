@@ -16,6 +16,10 @@ app.add_middleware(CORSMiddleware, allow_origins=ALLOWED_ORIGINS,
     allow_credentials=False, allow_methods=["*"], allow_headers=["*"])
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
+RAZORPAY_KEY_ID = os.getenv("RAZORPAY_KEY_ID", "")
+RAZORPAY_SECRET = os.getenv("RAZORPAY_SECRET", "")
+SUPABASE_URL = os.getenv("SUPABASE_URL", "")
+SUPABASE_SECRET_KEY = os.getenv("SUPABASE_SECRET_KEY", "")
 GEMINI_MODEL   = "gemini-2.5-flash"
 GEMINI_URL     = f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent"
 LIBRARY_FILE   = Path(__file__).parent / "vastu_library.json"
