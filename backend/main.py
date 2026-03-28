@@ -20,6 +20,9 @@ RAZORPAY_SECRET = os.getenv("RAZORPAY_SECRET", "")
 SUPABASE_URL = os.getenv("SUPABASE_URL", "")
 SUPABASE_SECRET_KEY = os.getenv("SUPABASE_SECRET_KEY", "")
 
+# SECURITY FIX: Hardcoded Pro plan price (in paise)
+PRO_PLAN_PRICE = 19900  # ₹199
+
 GEMINI_MODEL   = "gemini-2.5-flash"
 GEMINI_URL     = f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent"
 LIBRARY_FILE   = Path(__file__).parent / "vastu_library.json"
@@ -283,8 +286,8 @@ class PlanRequest(BaseModel):
     user_id: str = None
 
 class OrderRequest(BaseModel):
-    amount: int
     user_id: str
+    # SECURITY FIX: Remove 'amount' field - we use hardcoded PRO_PLAN_PRICE
 
 class VerifyRequest(BaseModel):
     razorpay_order_id: str
@@ -314,30 +317,60 @@ Return this exact JSON:
         score = 95 if req.entrance_direction in ["North","East","North-East"] else 82 if req.entrance_direction in ["West","South-East","North-West"] else 75
         return {"home_type":req.home_type,"entrance_direction":req.entrance_direction,"vastu_score":score,"rooms":rooms,"key_principles":[f"{req.entrance_direction} entrance — ensure bright lighting and Ganesha above door","Kitchen in South-East (Agni zone) is ideal","Master bedroom in South-West for stability and grounding","Keep North-East corner open and clutter-free"],"warnings":[f"{req.entrance_direction} entrance requires remedies — add Ganesha and bright lights"] if req.entrance_direction in ["South","South-West"] else [],"remedies":["Place Vastu pyramid in defective zones","Sea salt bowls in all corners monthly","Copper vessel in North-East"],"summary":f"Vastu-compliant layout for your {req.home_type} with {req.entrance_direction}-facing entrance. Key rooms placed in ideal directions for harmony and prosperity."}
 
+
+# ============================================
+# SECURITY FIXED: Payment Endpoints
+# ============================================
+
 @app.post("/create-order")
 async def create_order(req: OrderRequest):
+    """
+    Create a Razorpay order with HARDCODED price.
+    SECURITY: We never trust client-supplied amount.
+    """
     try:
         url = "https://api.razorpay.com/v1/orders"
         auth = (RAZORPAY_KEY_ID, RAZORPAY_SECRET)
+        
+        # SECURITY FIX: Use hardcoded price, not req.amount
         data = {
-            "amount": req.amount,
+            "amount": PRO_PLAN_PRICE,  # Always ₹199 (19900 paise)
             "currency": "INR",
             "receipt": f"vf_{req.user_id[:8]}",
-            "notes": {"user_id": req.user_id, "plan": "pro"}
+            "notes": {
+                "user_id": req.user_id, 
+                "plan": "pro",
+                "expected_amount": PRO_PLAN_PRICE
+            }
         }
+        
         async with httpx.AsyncClient(timeout=15) as client:
             res = await client.post(url, auth=auth, json=data)
+        
         if res.status_code != 200:
             raise HTTPException(status_code=500, detail="Order creation failed")
+        
         order = res.json()
-        return {"id": order["id"], "amount": order["amount"], "currency": order["currency"]}
+        return {
+            "id": order["id"], 
+            "amount": order["amount"], 
+            "currency": order["currency"]
+        }
     except HTTPException:
         raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+
 @app.post("/verify-payment")
 async def verify_payment(req: VerifyRequest):
+    """
+    Verify Razorpay payment and upgrade user to Pro.
+    SECURITY FIXES:
+    1. Verify signature (already done)
+    2. Fetch order from Razorpay and verify amount matches expected
+    3. Check Supabase write results before returning success
+    """
     try:
         headers = {
             "apikey": SUPABASE_SECRET_KEY,
@@ -345,38 +378,98 @@ async def verify_payment(req: VerifyRequest):
             "Content-Type": "application/json",
             "Prefer": "return=representation"
         }
-        # IDEMPOTENCY CHECK
+        
+        # IDEMPOTENCY CHECK - already processed?
         check_url = f"{SUPABASE_URL}/rest/v1/payment_logs?payment_id=eq.{req.razorpay_payment_id}&select=id"
         with httpx.Client(timeout=10) as client:
             check_res = client.get(check_url, headers=headers)
+        
         if check_res.status_code == 200 and check_res.json():
             return {"success": True, "message": "Already processed"}
+        
         # VERIFY SIGNATURE
         body = f"{req.razorpay_order_id}|{req.razorpay_payment_id}"
-        expected = hmac.new(
+        expected_sig = hmac.new(
             RAZORPAY_SECRET.encode(),
             body.encode(),
             hashlib.sha256
         ).hexdigest()
-        if expected != req.razorpay_signature:
+        
+        if expected_sig != req.razorpay_signature:
             raise HTTPException(status_code=400, detail="Invalid payment signature")
-        # LOG PAYMENT
+        
+        # SECURITY FIX: Fetch order from Razorpay to verify actual amount paid
+        order_url = f"https://api.razorpay.com/v1/orders/{req.razorpay_order_id}"
+        async with httpx.AsyncClient(timeout=10) as client:
+            order_res = await client.get(order_url, auth=(RAZORPAY_KEY_ID, RAZORPAY_SECRET))
+        
+        if order_res.status_code != 200:
+            raise HTTPException(status_code=400, detail="Could not verify order with Razorpay")
+        
+        order_data = order_res.json()
+        paid_amount = order_data.get("amount_paid", 0)
+        
+        # Verify amount matches expected Pro price
+        if paid_amount < PRO_PLAN_PRICE:
+            raise HTTPException(
+                status_code=400, 
+                detail=f"Payment amount {paid_amount} does not match expected {PRO_PLAN_PRICE}"
+            )
+        
+        # LOG PAYMENT - with error checking
         log_url = f"{SUPABASE_URL}/rest/v1/payment_logs"
         log_data = {
             "payment_id": req.razorpay_payment_id,
             "order_id": req.razorpay_order_id,
-            "user_id":str(req.user_id),
-            "amount": 19900,
-            "status": "success"
+            "user_id": str(req.user_id),
+            "amount": paid_amount,
+            "expected_amount": PRO_PLAN_PRICE,
+            "status": "success",
+            "verified": True
         }
+        
         with httpx.Client(timeout=10) as client:
-            client.post(log_url, headers=headers, json=log_data)
-        # UPGRADE USER TO PRO
+            log_res = client.post(log_url, headers=headers, json=log_data)
+        
+        # SECURITY FIX: Check if log insert succeeded
+        if log_res.status_code not in [200, 201]:
+            raise HTTPException(
+                status_code=500, 
+                detail="Failed to log payment. Please contact support."
+            )
+        
+        # UPGRADE USER TO PRO - with error checking
         update_url = f"{SUPABASE_URL}/rest/v1/profiles?id=eq.{req.user_id}"
         with httpx.Client(timeout=10) as client:
-            client.patch(update_url, headers=headers, json={"plan": "pro"})
+            update_res = client.patch(update_url, headers=headers, json={"plan": "pro"})
+        
+        # SECURITY FIX: Check if upgrade succeeded
+        if update_res.status_code not in [200, 204]:
+            # Payment logged but upgrade failed - this needs manual intervention
+            # Log this error state
+            error_log_data = {
+                "payment_id": f"ERROR_{req.razorpay_payment_id}",
+                "order_id": req.razorpay_order_id,
+                "user_id": str(req.user_id),
+                "amount": paid_amount,
+                "status": "upgrade_failed",
+                "verified": True
+            }
+            with httpx.Client(timeout=10) as client:
+                client.post(log_url, headers=headers, json=error_log_data)
+            
+            raise HTTPException(
+                status_code=500, 
+                detail="Payment received but upgrade failed. Please contact support with your payment ID."
+            )
+        
         return {"success": True, "message": "Payment verified, upgraded to Pro"}
+        
     except HTTPException:
         raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+# ============================================
+# END SECURITY FIXES
+# ============================================
