@@ -7,7 +7,6 @@ from pydantic import BaseModel
 import httpx
 import hmac
 import hashlib
-
 from query_gate import check_and_increment_query
 
 app = FastAPI(title="VastuForge API", version="2.0.0")
@@ -20,6 +19,7 @@ RAZORPAY_KEY_ID = os.getenv("RAZORPAY_KEY_ID", "")
 RAZORPAY_SECRET = os.getenv("RAZORPAY_SECRET", "")
 SUPABASE_URL = os.getenv("SUPABASE_URL", "")
 SUPABASE_SECRET_KEY = os.getenv("SUPABASE_SECRET_KEY", "")
+
 GEMINI_MODEL   = "gemini-2.5-flash"
 GEMINI_URL     = f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent"
 LIBRARY_FILE   = Path(__file__).parent / "vastu_library.json"
@@ -32,6 +32,7 @@ class ChatRequest(BaseModel):
 class CheckRequest(BaseModel):
     description: str
     user_id: str = None
+
 async def call_gemini(prompt: str) -> str:
     if not GEMINI_API_KEY:
         raise HTTPException(status_code=500, detail="GEMINI_API_KEY not set")
@@ -42,6 +43,91 @@ async def call_gemini(prompt: str) -> str:
     if res.status_code != 200:
         raise HTTPException(status_code=502, detail=f"Gemini error: {res.text}")
     return res.json()["candidates"][0]["content"]["parts"][0]["text"]
+
+
+# ============================================
+# PHASE 6 LEVEL 1: Enhanced Session Memory
+# ============================================
+
+async def summarize_conversation(history: list) -> str:
+    """Summarize long conversations to fit context window while preserving key details"""
+    if len(history) <= 12:
+        return None
+    
+    middle = history[3:-6]
+    if not middle:
+        return None
+    
+    middle_text = "\n".join([f"{m['role']}: {m['content']}" for m in middle])
+    
+    summary_prompt = f"""Summarize this conversation excerpt in 2-3 sentences.
+Focus on: home details mentioned (type, direction, rooms), specific concerns raised, and advice given.
+
+Conversation:
+{middle_text}
+
+Summary:"""
+    
+    try:
+        summary = await call_gemini(summary_prompt)
+        return summary.strip()
+    except:
+        return None
+
+
+def extract_home_context(history: list) -> dict:
+    """Extract known home details from conversation for context"""
+    context = {}
+    full_text = " ".join([m.get('content', '').lower() for m in history])
+    
+    # Home type detection
+    if any(word in full_text for word in ['flat', 'apartment', '2bhk', '3bhk', '1bhk']):
+        context['home_type'] = 'flat/apartment'
+    elif any(word in full_text for word in ['house', 'villa', 'bungalow', 'independent']):
+        context['home_type'] = 'independent house'
+    elif 'plot' in full_text:
+        context['home_type'] = 'plot'
+    
+    # Direction detection
+    directions = {
+        'north-east': ['north-east', 'northeast', 'ne facing', 'ishaan'],
+        'north-west': ['north-west', 'northwest', 'nw facing', 'vayavya'],
+        'south-east': ['south-east', 'southeast', 'se facing', 'agneya'],
+        'south-west': ['south-west', 'southwest', 'sw facing', 'nairutya'],
+        'north': ['north facing', 'north entrance', 'uttar'],
+        'south': ['south facing', 'south entrance', 'dakshin'],
+        'east': ['east facing', 'east entrance', 'purva', 'poorva'],
+        'west': ['west facing', 'west entrance', 'paschim'],
+    }
+    
+    for direction, keywords in directions.items():
+        if any(kw in full_text for kw in keywords):
+            context['entrance_direction'] = direction
+            break
+    
+    # Room mentions
+    rooms_mentioned = []
+    room_keywords = ['kitchen', 'bedroom', 'bathroom', 'toilet', 'pooja', 'living', 'dining', 'study', 'balcony']
+    for room in room_keywords:
+        if room in full_text:
+            rooms_mentioned.append(room)
+    if rooms_mentioned:
+        context['rooms_discussed'] = rooms_mentioned
+    
+    # City detection
+    cities = ['mumbai', 'delhi', 'bangalore', 'bengaluru', 'chennai', 'kolkata', 'hyderabad', 
+              'pune', 'ahmedabad', 'jaipur', 'lucknow', 'chandigarh', 'indore', 'nagpur', 'gurgaon', 'noida']
+    for city in cities:
+        if city in full_text:
+            context['city'] = city.title()
+            break
+    
+    return context
+
+# ============================================
+# END PHASE 6 LEVEL 1 HELPERS
+# ============================================
+
 
 @app.get("/health")
 def health(): return {"status":"ok"}
@@ -57,20 +143,88 @@ def design_detail(design_id: str):
     if not design: raise HTTPException(status_code=404, detail=f"Design {design_id} not found")
     return design
 
+# ============================================
+# PHASE 6 LEVEL 1: Updated /vastu-chat
+# ============================================
+
 @app.post("/vastu-chat")
 async def vastu_chat(req: ChatRequest):
+    # Check query limits
     gate = check_and_increment_query(req.user_id)
     if not gate["allowed"]:
-        raise HTTPException(status_code=429, detail={"error": "daily_limit_reached", "message": "You've used all 10 free AI queries for today. Upgrade to Pro for unlimited access.", "limit": 10})
-    history_text = "".join([f"{h['role'].upper()}: {h['content']}\n" for h in req.history[-6:]])
-    prompt = f"""You are VastuAI, a warm expert Vastu Shastra consultant for Indian homes.
-You know Vastu principles, directions, five elements, room placement, colours, remedies and cures.
-Be warm and practical. Keep responses to 3-5 sentences. Use relevant emojis. End with one practical tip.
+        raise HTTPException(status_code=429, detail={
+            "error": "daily_limit_reached", 
+            "message": "You've used all 10 free AI queries for today. Upgrade to Pro for unlimited access.", 
+            "limit": 10
+        })
+    
+    history = req.history if req.history else []
+    
+    # LEVEL 1: Smart history management
+    summary = None
+    context = {}
+    
+    # Extract home context from full history
+    context = extract_home_context(history)
+    
+    # Summarize if conversation is long
+    if len(history) > 12:
+        summary = await summarize_conversation(history)
+        # Keep first 3 (for context) + last 6 (recent) messages
+        history = history[:3] + history[-6:]
+    
+    # Build history text
+    history_text = ""
+    
+    # Add summary if exists
+    if summary:
+        history_text += f"[Earlier in this conversation: {summary}]\n\n"
+    
+    # Add extracted context
+    if context:
+        context_parts = []
+        if context.get('home_type'):
+            context_parts.append(f"Home: {context['home_type']}")
+        if context.get('entrance_direction'):
+            context_parts.append(f"Entrance: {context['entrance_direction']}")
+        if context.get('city'):
+            context_parts.append(f"City: {context['city']}")
+        if context.get('rooms_discussed'):
+            context_parts.append(f"Rooms discussed: {', '.join(context['rooms_discussed'])}")
+        
+        if context_parts:
+            history_text += f"[Known about user's home: {' | '.join(context_parts)}]\n\n"
+    
+    # Add recent conversation
+    history_text += "".join([f"{h['role'].upper()}: {h['content']}\n" for h in history[-8:]])
+    
+    prompt = f"""You are VastuAI, a warm and knowledgeable Vastu Shastra consultant for Indian homes.
+
+You have expertise in:
+- Vastu principles, directions, and the five elements (Panch Bhuta)
+- Room placement, colours, materials, and remedies
+- Both traditional practices and practical modern adaptations
+
+Guidelines:
+- Be warm, helpful, and use relevant emojis 🪔 🧭 🏠
+- Keep responses to 3-5 sentences unless the user asks for detail
+- Reference any known context about the user's home
+- End with one practical, actionable tip when giving advice
 
 {history_text}USER: {req.message}
 VASTUAI:"""
+    
     response = await call_gemini(prompt)
-    return {"reply": response.strip()}
+    
+    return {
+        "reply": response.strip(),
+        "context_used": context if context else None
+    }
+
+# ============================================
+# END PHASE 6 LEVEL 1 UPDATES
+# ============================================
+
 
 @app.post("/vastu-check")
 async def vastu_check(req: CheckRequest):
@@ -156,7 +310,6 @@ Return this exact JSON:
             text = text[start:end]
         return json.loads(text)
     except Exception:
-        # Return intelligent fallback based on entrance direction
         rooms = {"living_room":"North-East","kitchen":"South-East","master_bedroom":"South-West","bedroom_2":"West","toilet":"North-West","pooja_room":"North-East corner"}
         score = 95 if req.entrance_direction in ["North","East","North-East"] else 82 if req.entrance_direction in ["West","South-East","North-West"] else 75
         return {"home_type":req.home_type,"entrance_direction":req.entrance_direction,"vastu_score":score,"rooms":rooms,"key_principles":[f"{req.entrance_direction} entrance — ensure bright lighting and Ganesha above door","Kitchen in South-East (Agni zone) is ideal","Master bedroom in South-West for stability and grounding","Keep North-East corner open and clutter-free"],"warnings":[f"{req.entrance_direction} entrance requires remedies — add Ganesha and bright lights"] if req.entrance_direction in ["South","South-West"] else [],"remedies":["Place Vastu pyramid in defective zones","Sea salt bowls in all corners monthly","Copper vessel in North-East"],"summary":f"Vastu-compliant layout for your {req.home_type} with {req.entrance_direction}-facing entrance. Key rooms placed in ideal directions for harmony and prosperity."}
