@@ -5,14 +5,21 @@ import { supabase } from '../../lib/supabase';
 import Script from 'next/script';
 
 const API = process.env.NEXT_PUBLIC_API_URL || 'https://toyforge.onrender.com';
-const RAZORPAY_KEY = process.env.NEXT_PUBLIC_RAZORPAY_KEY || 'rzp_test_SSjqheNhQr8IX6';
+const RAZORPAY_KEY = process.env.NEXT_PUBLIC_RAZORPAY_KEY;
 
 export default function Pricing() {
   const [user, setUser] = useState(null);
   const [plan, setPlan] = useState('free');
   const [loading, setLoading] = useState(false);
+  const [configError, setConfigError] = useState(false);
 
   useEffect(() => {
+    // Check if Razorpay key is configured
+    if (!RAZORPAY_KEY) {
+      console.error('NEXT_PUBLIC_RAZORPAY_KEY is not configured');
+      setConfigError(true);
+    }
+
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (session) {
         setUser(session.user);
@@ -41,16 +48,20 @@ export default function Pricing() {
       return;
     }
 
+    // SECURITY: Fail explicitly if Razorpay not configured
+    if (!RAZORPAY_KEY) {
+      alert('Payment system is not configured. Please contact support.');
+      return;
+    }
+
     setLoading(true);
 
     try {
-      // SECURITY FIX: Don't send amount - backend uses hardcoded price
       const orderRes = await fetch(`${API}/create-order`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           user_id: user.id
-          // amount removed - server controls the price
         })
       });
 
@@ -68,7 +79,6 @@ export default function Pricing() {
         description: 'Pro Plan - Monthly',
         order_id: order.id,
         handler: async function (response) {
-          // Verify payment
           try {
             const verifyRes = await fetch(`${API}/verify-payment`, {
               method: 'POST',
@@ -136,6 +146,22 @@ export default function Pricing() {
             Unlock the full power of Vastu guidance
           </p>
         </div>
+
+        {/* Config Error Warning */}
+        {configError && (
+          <div style={{
+            background: '#FEE2E2',
+            border: '1px solid #EF4444',
+            borderRadius: 8,
+            padding: 16,
+            marginBottom: 24,
+            textAlign: 'center'
+          }}>
+            <p style={{ color: '#DC2626', margin: 0, fontSize: 14 }}>
+              ⚠️ Payment system is currently unavailable. Please try again later or contact support.
+            </p>
+          </div>
+        )}
 
         <div style={{
           display: 'grid',
@@ -247,7 +273,7 @@ export default function Pricing() {
             ) : (
               <button
                 onClick={handleUpgrade}
-                disabled={loading}
+                disabled={loading || configError}
                 style={{
                   width: '100%',
                   padding: '14px 24px',
@@ -257,8 +283,8 @@ export default function Pricing() {
                   color: '#1a0a00',
                   fontSize: 15,
                   fontWeight: 700,
-                  cursor: loading ? 'wait' : 'pointer',
-                  opacity: loading ? 0.7 : 1
+                  cursor: (loading || configError) ? 'not-allowed' : 'pointer',
+                  opacity: (loading || configError) ? 0.7 : 1
                 }}
               >
                 {loading ? 'Processing...' : 'Upgrade to Pro ✨'}

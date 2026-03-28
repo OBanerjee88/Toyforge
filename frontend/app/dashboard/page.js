@@ -7,6 +7,7 @@ export default function Dashboard() {
   const router = useRouter();
   const [user, setUser] = useState(null);
   const [profile, setProfile] = useState(null);
+  const [savedPlansCount, setSavedPlansCount] = useState(0);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -14,9 +15,19 @@ export default function Dashboard() {
       const { data: { session } } = await supabase.auth.getSession();
       if (!session) { router.push('/auth/login'); return; }
       setUser(session.user);
+      
+      // Fetch profile
       const { data: profileData } = await supabase
         .from('profiles').select('*').eq('id', session.user.id).single();
       setProfile(profileData);
+      
+      // Fetch actual saved plans count from saved_plans table
+      const { count } = await supabase
+        .from('saved_plans')
+        .select('*', { count: 'exact', head: true })
+        .eq('user_id', session.user.id);
+      setSavedPlansCount(count || 0);
+      
       setLoading(false);
     };
     getUser();
@@ -100,8 +111,8 @@ export default function Dashboard() {
         <div style={{ display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:'16px', marginBottom:'32px' }}>
           {[
             { label:'AI Queries Today', value: isPro ? '∞' : `${queriesUsed}/${queryLimit}`, icon:'🤖' },
-            { label:'Plans Saved', value: profile?.saved_plans_count || 0, icon:'📐' },
-            { label:'Reports Generated', value: profile?.reports_count || 0, icon:'📄' },
+            { label:'Plans Saved', value: savedPlansCount, icon:'📐' },
+            { label:'Reports Generated', value: 'Coming Soon', icon:'📄' },
           ].map((stat) => (
             <div key={stat.label} style={{ background:'white', borderRadius:'16px', padding:'20px', textAlign:'center', border:'1px solid #e8d5b0', boxShadow:'0 1px 4px rgba(0,0,0,0.06)' }}>
               <div style={{ fontSize:'28px', marginBottom:'6px' }}>{stat.icon}</div>
